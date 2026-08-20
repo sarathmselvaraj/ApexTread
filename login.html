@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html data-theme="light" dir="ltr" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Sign In | ApexTread</title><meta content="Sign in securely to manage ApexTread bookings, saved services and tyre care." name="description"/><meta content="Sign In | ApexTread" property="og:title"/><meta content="Sign in securely to manage ApexTread bookings, saved services and tyre care." property="og:description"/><meta content="website" property="og:type"/><meta content="summary_large_image" name="twitter:card"/><link href="assets/img/favicon.png" rel="icon" sizes="32x32" type="image/png"/><link href="assets/img/favicon.ico" rel="shortcut icon" type="image/x-icon"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Barlow:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="assets/css/tailwind-local.css" rel="stylesheet"/><link href="assets/css/style.css" rel="stylesheet"/></head><body class="apex-reference-layout auth-premium-page auth-login-page" data-page="auth" data-page-name="login">
+<div aria-label="Display controls" class="auth-floating-controls">
+<button aria-label="Toggle light and dark mode" class="auth-float-btn" data-toggle-theme="" title="Toggle theme" type="button">
+<span aria-hidden="true" class="auth-control-icon auth-theme-icon apex-action-icon"></span><span class="auth-control-text apex-action-label">Dark</span>
+</button>
+<button aria-label="Toggle text direction" class="auth-float-btn" data-toggle-dir="" title="Toggle direction" type="button">
+<span aria-hidden="true" class="auth-control-icon apex-action-icon"></span><span class="auth-control-text apex-action-label">RTL</span>
+</button>
+</div>
+<main class="auth-premium-main">
+<section aria-labelledby="login-title" class="auth-premium-stage">
+<div aria-hidden="true" class="auth-pattern"></div>
+<form class="auth-card auth-card-login" id="login-form" novalidate="">
+<a aria-label="ApexTread home" class="auth-brand-mark" href="index.html">
+<span class="auth-brand-icon"><img alt="" aria-hidden="true" src="assets/img/apextread-logo.png"/></span>
+<span class="auth-brand-word">Apex<span>Tread</span></span>
+</a>
+<div class="auth-card-heading">
+<h1 id="login-title">Welcome Back!</h1>
+<p>Sign in to manage your bookings, saved services and tyre care.</p>
+</div>
+<div class="auth-field">
+<label for="login-email">Email Address</label>
+<div class="auth-input-wrap"><span aria-hidden="true" class="auth-input-icon">✉</span><input autocomplete="email" class="form-input" id="login-email" name="email" placeholder="you@example.com" required="" type="email"/></div>
+</div>
+<div class="auth-field">
+<label for="login-password">Password</label>
+<div class="auth-input-wrap"><span aria-hidden="true" class="auth-input-icon">⌑</span><input autocomplete="current-password" class="form-input" id="login-password" name="password" placeholder="Your password" required="" type="password"/><button aria-label="Show password" aria-pressed="false" class="auth-password-toggle" data-password-toggle="login-password" type="button">⌾</button></div>
+</div>
+<div class="auth-helper-row">
+<label class="auth-check"><input name="remember" type="checkbox" value="yes"/><span>Remember me</span></label>
+<button class="auth-text-action" data-reset-password="" type="button">Forgot password?</button>
+</div>
+<button class="auth-primary-btn" type="submit"><span aria-hidden="true">↪</span> Sign In</button>
+<div aria-live="polite" class="auth-status" id="auth-status" role="status"></div>
+<div class="auth-divider"><span>or continue with</span></div>
+<div aria-label="Social sign in options" class="auth-social-grid">
+<button class="auth-social-btn" data-social-auth="google" type="button"><span aria-hidden="true" class="auth-google-icon">G</span><span>Google</span></button>
+<button class="auth-social-btn" data-social-auth="facebook" type="button"><span aria-hidden="true" class="auth-facebook-icon">f</span><span>Facebook</span></button>
+</div>
+<p class="auth-switch-copy">New to ApexTread? <a href="register.html">Create an account</a></p>
+</form>
+</section>
+</main>
+<script src="assets/js/main.js"></script>
+</body></html>
