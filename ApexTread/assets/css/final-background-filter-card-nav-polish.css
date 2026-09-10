@@ -1,0 +1,170 @@
+/* ApexTread — background / filter / card / pricing / navbar final polish */
+
+/* 1) Make the automotive background deliberately visible in BOTH themes while preserving text readability. */
+html[data-theme="light"] body.fresh-apex-theme{
+  --fg:#0b1220 !important;
+  --muted:#334155 !important;
+  --border:#cbd5e1 !important;
+  --border-strong:#aeb9c8 !important;
+  background-color:#eef3f7 !important;
+  background-image:
+    url('../img/tyre-watermark-orange.png'),
+    linear-gradient(rgba(244,247,250,.78),rgba(248,250,252,.84)),
+    url('../img/showroom.webp') !important;
+  background-position:right 3% top 110px,center,center top !important;
+  background-size:clamp(260px,30vw,470px) auto,cover,cover !important;
+  background-repeat:no-repeat,no-repeat,no-repeat !important;
+  background-attachment:fixed,fixed,fixed !important;
+}
+html[data-theme="dark"] body.fresh-apex-theme{
+  --fg:#f8fafc !important;
+  --muted:#c4ced9 !important;
+  --border:#354151 !important;
+  --border-strong:#526071 !important;
+  background-color:#070b10 !important;
+  background-image:
+    url('../img/tyre-watermark-orange.png'),
+    linear-gradient(rgba(7,11,16,.79),rgba(9,13,18,.87)),
+    url('../img/showroom.webp') !important;
+  background-position:right 3% top 110px,center,center top !important;
+  background-size:clamp(260px,30vw,470px) auto,cover,cover !important;
+  background-repeat:no-repeat,no-repeat,no-repeat !important;
+  background-attachment:fixed,fixed,fixed !important;
+}
+/* Let the body artwork breathe through long sections instead of hiding it behind solid panels. */
+html[data-theme="light"] body.fresh-apex-theme main>section:not(.home-ref-hero){
+  background-color:rgba(248,250,252,.84) !important;
+  border-color:rgba(148,163,184,.38) !important;
+}
+html[data-theme="dark"] body.fresh-apex-theme main>section:not(.home-ref-hero){
+  background-color:rgba(9,13,18,.84) !important;
+  border-color:rgba(71,85,105,.54) !important;
+}
+html[data-theme="light"] body.fresh-apex-theme :is(p,.text-muted,[style*="var(--muted)"],small){color:#334155 !important;opacity:1 !important}
+html[data-theme="dark"] body.fresh-apex-theme :is(p,.text-muted,[style*="var(--muted)"],small){color:#c4ced9 !important;opacity:1 !important}
+
+/* Home 1 hero keeps the image obvious, with a cleaner transparent overlay. */
+html[data-theme="light"] body.page-home.fresh-apex-theme .home-ref-hero{
+  background-image:linear-gradient(90deg,rgba(248,250,252,.92) 0%,rgba(248,250,252,.73) 47%,rgba(248,250,252,.28) 100%),url('../img/showroom.webp') !important;
+}
+html[data-theme="dark"] body.page-home.fresh-apex-theme .home-ref-hero{
+  background-image:linear-gradient(90deg,rgba(7,11,16,.95) 0%,rgba(7,11,16,.78) 47%,rgba(7,11,16,.34) 100%),url('../img/showroom.webp') !important;
+}
+
+/* 2) Home 1 tyre filter — visible, functional, professional. */
+body.page-home.fresh-apex-theme .tyre-shop-section .filter-toggle-btn{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:.5rem !important;
+  min-height:44px !important;margin:1.15rem 0 .75rem !important;padding:.72rem 1rem !important;
+  border:1px solid color-mix(in srgb,var(--brand) 42%,var(--border)) !important;border-radius:12px !important;
+  background:var(--surface) !important;color:var(--fg) !important;font-weight:600 !important;letter-spacing:.01em !important;
+}
+body.page-home.fresh-apex-theme .tyre-search-panel{
+  display:grid !important;gap:14px !important;margin:0 0 1.35rem !important;padding:16px !important;
+  border:1px solid var(--border) !important;border-radius:18px !important;
+  background:color-mix(in srgb,var(--surface) 96%,transparent) !important;
+  box-shadow:0 18px 45px -36px rgba(15,23,42,.55) !important;
+}
+body.page-home.fresh-apex-theme .tyre-search-panel.filter-panel-collapsed{display:none !important}
+body.page-home.fresh-apex-theme .tyre-tier-filters{display:flex !important;flex-wrap:wrap !important;gap:8px !important;width:100% !important}
+body.page-home.fresh-apex-theme .filter-btn{
+  min-height:40px !important;padding:.6rem .9rem !important;border-radius:11px !important;
+  border:1px solid var(--border) !important;background:var(--surface-2) !important;color:var(--fg) !important;
+  font-size:.78rem !important;font-weight:600 !important;letter-spacing:.02em !important;text-transform:none !important;
+}
+body.page-home.fresh-apex-theme .filter-btn:is(:hover,.active){background:#f97316 !important;border-color:#f97316 !important;color:#fff !important;box-shadow:0 8px 18px -13px rgba(249,115,22,.8) !important}
+body.page-home.fresh-apex-theme .apex-advanced-tyre-filters{
+  display:grid !important;grid-template-columns:repeat(6,minmax(0,1fr)) !important;gap:10px !important;align-items:end !important;
+}
+body.page-home.fresh-apex-theme .apex-filter-field{display:flex !important;flex-direction:column !important;gap:6px !important;min-width:0 !important}
+body.page-home.fresh-apex-theme .apex-filter-field label{font-size:.72rem !important;font-weight:600 !important;color:var(--fg) !important;letter-spacing:.02em !important}
+body.page-home.fresh-apex-theme .apex-filter-field select,
+body.page-home.fresh-apex-theme #apex-sort-filter{
+  width:100% !important;min-height:44px !important;border:1px solid var(--border) !important;border-radius:11px !important;
+  background:var(--surface) !important;color:var(--fg) !important;padding:.65rem 2rem .65rem .75rem !important;font-size:.82rem !important;font-weight:500 !important;
+}
+body.page-home.fresh-apex-theme .apex-tyre-reset{justify-self:start !important;min-height:40px !important;padding:.55rem .85rem !important;border-radius:10px !important;border:1px solid var(--border) !important;background:transparent !important;color:var(--fg) !important;font-weight:600 !important}
+body.page-home.fresh-apex-theme .apex-tyre-reset:hover{border-color:#f97316 !important;color:#c2410c !important;background:rgba(249,115,22,.08) !important}
+html[data-theme="dark"] body.page-home.fresh-apex-theme .apex-tyre-reset:hover{color:#fdba74 !important}
+body.page-home.fresh-apex-theme .tyre-search-box{margin-top:0 !important;border-color:var(--border) !important;background:var(--surface) !important}
+body.page-home.fresh-apex-theme .tyre-search-status{margin:0 !important;font-weight:500 !important;color:var(--muted) !important}
+
+/* 3) Card copy alignment — consistent baselines on desktop, natural flow on phones. */
+body.fresh-apex-theme .tyre-product-grid{align-items:stretch !important}
+body.fresh-apex-theme .tyre-product-card{display:flex !important;flex-direction:column !important;height:100% !important;text-align:left !important}
+html[dir="rtl"] body.fresh-apex-theme .tyre-product-card{text-align:right !important}
+body.fresh-apex-theme .tyre-product-body{display:flex !important;flex:1 !important;flex-direction:column !important;height:auto !important;padding:1.15rem !important}
+body.fresh-apex-theme .tyre-product-meta{min-height:28px !important;align-items:center !important;gap:.5rem !important}
+body.fresh-apex-theme .tyre-product-body h3{min-height:2.7em !important;margin:.7rem 0 .45rem !important;line-height:1.32 !important;font-weight:600 !important}
+body.fresh-apex-theme .tyre-product-body>p{min-height:4.35em !important;margin:0 0 .8rem !important;line-height:1.5 !important}
+body.fresh-apex-theme .tyre-feature-row{min-height:58px !important;align-content:flex-start !important;margin:.25rem 0 .9rem !important}
+body.fresh-apex-theme .tyre-price-row{margin-top:auto !important;padding-top:.8rem !important;border-top:1px solid var(--border) !important;align-items:flex-end !important;gap:.8rem !important}
+body.fresh-apex-theme .tyre-buy-actions{display:flex !important;flex-direction:column !important;align-items:stretch !important;gap:.45rem !important}
+body.fresh-apex-theme .tyre-buy-actions :is(a,button){min-height:38px !important;display:inline-flex !important;align-items:center !important;justify-content:center !important;text-align:center !important}
+
+/* General card readability and alignment. */
+body.fresh-apex-theme :is(.surface-card,.vehicle-card,.turnaround-card,.offer-card,.fleet-service-card,.plan-card){color:var(--fg) !important}
+body.fresh-apex-theme :is(.surface-card,.vehicle-card,.turnaround-card,.offer-card,.fleet-service-card,.plan-card) h2,
+body.fresh-apex-theme :is(.surface-card,.vehicle-card,.turnaround-card,.offer-card,.fleet-service-card,.plan-card) h3{font-weight:600 !important;line-height:1.25 !important}
+
+/* 4) Pricing: keep Most Popular inside the card flow at every breakpoint, never overlapping. */
+body.fresh-apex-theme .plan-card{position:relative !important;display:flex !important;flex-direction:column !important;overflow:visible !important}
+body.fresh-apex-theme .plan-card.featured{padding-top:1.4rem !important;border-color:rgba(249,115,22,.48) !important;box-shadow:0 20px 50px -34px rgba(249,115,22,.6) !important}
+body.fresh-apex-theme .plan-card .popular-badge{
+  position:static !important;inset:auto !important;transform:none !important;float:none !important;
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;align-self:center !important;
+  width:max-content !important;max-width:calc(100% - 12px) !important;margin:0 auto .9rem !important;padding:.42rem .72rem !important;
+  border:1px solid rgba(249,115,22,.36) !important;border-radius:999px !important;background:rgba(249,115,22,.10) !important;color:#c2410c !important;
+  font-size:.72rem !important;font-weight:600 !important;line-height:1.2 !important;white-space:nowrap !important;z-index:1 !important;
+}
+html[data-theme="dark"] body.fresh-apex-theme .plan-card .popular-badge{background:rgba(249,115,22,.16) !important;color:#fdba74 !important;border-color:rgba(251,146,60,.44) !important}
+
+/* 5) Header actions: clearer hierarchy and polished add/saved-plan interaction. */
+body.fresh-apex-theme .apex-header-actions{gap:8px !important;align-items:center !important}
+body.fresh-apex-theme .apex-signin{
+  min-height:40px !important;padding:0 15px !important;border:1px solid var(--border-strong) !important;border-radius:12px !important;
+  background:color-mix(in srgb,var(--surface) 96%,transparent) !important;color:var(--fg) !important;font-weight:600 !important;box-shadow:none !important;
+}
+body.fresh-apex-theme .apex-signin:hover{border-color:#f97316 !important;background:rgba(249,115,22,.08) !important;color:#c2410c !important;transform:translateY(-2px) !important;box-shadow:0 10px 22px -18px rgba(249,115,22,.8) !important}
+html[data-theme="dark"] body.fresh-apex-theme .apex-signin:hover{color:#fdba74 !important}
+body.fresh-apex-theme .apex-register{
+  min-height:40px !important;padding:0 16px !important;border:1px solid #f97316 !important;border-radius:12px !important;
+  background:#f97316 !important;color:#fff !important;font-weight:600 !important;box-shadow:0 10px 22px -16px rgba(249,115,22,.75) !important;
+}
+body.fresh-apex-theme .apex-register:hover{background:#ea580c !important;border-color:#ea580c !important;transform:translateY(-2px) !important;box-shadow:0 14px 28px -17px rgba(234,88,12,.9) !important}
+body.fresh-apex-theme .service-plan-nav{
+  min-height:40px !important;padding:0 12px !important;border:1px solid color-mix(in srgb,#f97316 34%,var(--border)) !important;border-radius:12px !important;
+  background:color-mix(in srgb,#f97316 6%,var(--surface)) !important;color:var(--fg) !important;font-weight:600 !important;gap:7px !important;
+}
+body.fresh-apex-theme .service-plan-nav-icon{color:#f97316 !important}
+body.fresh-apex-theme .service-plan-nav:hover{border-color:#f97316 !important;background:rgba(249,115,22,.12) !important;color:#c2410c !important;transform:translateY(-2px) !important;box-shadow:0 12px 26px -20px rgba(249,115,22,.9) !important}
+html[data-theme="dark"] body.fresh-apex-theme .service-plan-nav:hover{color:#fdba74 !important}
+body.fresh-apex-theme .service-plan-nav [data-plan-count]:not(.hidden){display:grid !important;place-items:center !important;min-width:21px !important;height:21px !important;padding:0 5px !important;border-radius:999px !important;background:#f97316 !important;color:#fff !important;font-size:.68rem !important}
+body.fresh-apex-theme .plan-secondary-btn{border-color:rgba(249,115,22,.40) !important;color:#c2410c !important;background:rgba(249,115,22,.06) !important;font-weight:600 !important}
+body.fresh-apex-theme .plan-secondary-btn:hover{background:#f97316 !important;border-color:#f97316 !important;color:#fff !important;transform:translateY(-2px) !important}
+html[data-theme="dark"] body.fresh-apex-theme .plan-secondary-btn{color:#fdba74 !important}
+
+@media(max-width:1100px){
+  body.page-home.fresh-apex-theme .apex-advanced-tyre-filters{grid-template-columns:repeat(3,minmax(0,1fr)) !important}
+}
+@media(max-width:639px){
+  html[data-theme] body.fresh-apex-theme{background-attachment:scroll,scroll,scroll !important;background-position:right -100px top 90px,center,center top !important;background-size:270px auto,cover,auto 820px !important}
+  body.page-home.fresh-apex-theme .apex-advanced-tyre-filters{grid-template-columns:1fr !important}
+  body.page-home.fresh-apex-theme .tyre-tier-filters{display:grid !important;grid-template-columns:1fr 1fr !important}
+  body.page-home.fresh-apex-theme .tyre-search-panel{padding:13px !important;border-radius:15px !important}
+  body.fresh-apex-theme .tyre-product-body h3,body.fresh-apex-theme .tyre-product-body>p,body.fresh-apex-theme .tyre-feature-row{min-height:0 !important}
+  body.fresh-apex-theme .tyre-price-row{align-items:stretch !important;flex-direction:column !important}
+  body.fresh-apex-theme .tyre-buy-actions{width:100% !important}
+}
+/* Explicit Add-to-service-plan buttons: consistent premium orange outline across detail pages. */
+body.fresh-apex-theme [data-add-plan]{
+  border-color:rgba(249,115,22,.44) !important;
+  background:rgba(249,115,22,.07) !important;
+  color:#c2410c !important;
+  font-weight:600 !important;
+}
+body.fresh-apex-theme [data-add-plan]:hover{
+  background:#f97316 !important;border-color:#f97316 !important;color:#fff !important;
+  transform:translateY(-2px) !important;box-shadow:0 12px 26px -18px rgba(249,115,22,.82) !important;
+}
+html[data-theme="dark"] body.fresh-apex-theme [data-add-plan]{color:#fdba74 !important}
+html[data-theme="dark"] body.fresh-apex-theme [data-add-plan]:hover{color:#fff !important}

@@ -1,0 +1,220 @@
+/* ApexTread — final contrast, image, blog filter and signed-in navigation fix */
+
+/* 1) Stronger theme contrast + background separation */
+html[data-theme="light"] body.fresh-apex-theme{
+  --bg:#e8edf1 !important;
+  --surface:#ffffff !important;
+  --surface-2:#eef2f5 !important;
+  --surface-sec:#e1e7ec !important;
+  --fg:#0a1220 !important;
+  --muted:#334155 !important;
+  --border:#c3ccd6 !important;
+  --border-strong:#aeb9c5 !important;
+  color:#0a1220 !important;
+  background-color:#e8edf1 !important;
+  background-image:
+    url('../img/tyre-watermark-orange.png'),
+    linear-gradient(rgba(225,232,238,.72),rgba(239,244,247,.80)),
+    url('../img/showroom.webp') !important;
+  background-repeat:no-repeat,no-repeat,no-repeat !important;
+  background-position:right 3% top 115px,center top,center top !important;
+  background-size:clamp(250px,29vw,440px) auto,cover,cover !important;
+  background-attachment:fixed,fixed,fixed !important;
+}
+html[data-theme="dark"] body.fresh-apex-theme{
+  --bg:#080c11 !important;
+  --surface:#111820 !important;
+  --surface-2:#18212b !important;
+  --surface-sec:#0c131a !important;
+  --fg:#f8fafc !important;
+  --muted:#cbd5e1 !important;
+  --border:#33404d !important;
+  --border-strong:#465463 !important;
+  color:#f8fafc !important;
+  background-color:#080c11 !important;
+  background-image:
+    url('../img/tyre-watermark-orange.png'),
+    linear-gradient(rgba(8,12,17,.82),rgba(8,12,17,.88)),
+    url('../img/showroom.webp') !important;
+  background-repeat:no-repeat,no-repeat,no-repeat !important;
+  background-position:right 3% top 115px,center top,center top !important;
+  background-size:clamp(250px,29vw,440px) auto,cover,cover !important;
+  background-attachment:fixed,fixed,fixed !important;
+}
+
+/* Readability across pages. */
+html[data-theme="light"] body.fresh-apex-theme :is(p,small,label,.form-label,.text-muted,[style*="var(--muted)"],.nav-link,.filter-result-note,.blog-library-head p,.home-ref-stats span,.footer-contact,.apex-footer-brand p){
+  color:#334155 !important;
+  opacity:1 !important;
+}
+html[data-theme="light"] body.fresh-apex-theme :is(h1,h2,h3,h4,h5,strong,.apex-brand-name,.form-input,select,textarea,input){color:#0a1220 !important;}
+html[data-theme="dark"] body.fresh-apex-theme :is(p,small,label,.form-label,.text-muted,[style*="var(--muted)"],.nav-link,.filter-result-note,.blog-library-head p,.home-ref-stats span,.footer-contact,.apex-footer-brand p){
+  color:#cbd5e1 !important;
+  opacity:1 !important;
+}
+html[data-theme="dark"] body.fresh-apex-theme :is(h1,h2,h3,h4,h5,strong,.form-input,select,textarea,input){color:#f8fafc !important;}
+html[data-theme="light"] body.fresh-apex-theme .text-heat{color:#c2410c !important;background:none !important;-webkit-text-fill-color:currentColor !important;}
+html[data-theme="dark"] body.fresh-apex-theme .text-heat{color:#fdba74 !important;background:none !important;-webkit-text-fill-color:currentColor !important;}
+
+/* Make major content bands visually distinct instead of merging with the page background. */
+html[data-theme="light"] body.fresh-apex-theme :is(.turnaround-section,.offers-section,.blog-featured-section,section.border-y){
+  background-color:rgba(239,243,246,.92) !important;
+  border-color:#cbd4de !important;
+}
+html[data-theme="light"] body.fresh-apex-theme :is(.surface-card,.tyre-product-card,.service-card,.plan-card,.blog-article-card,.vehicle-card,.turnaround-card,.offer-card,.brand-img-card){
+  background:#fff !important;
+  border-color:#cbd4de !important;
+}
+html[data-theme="dark"] body.fresh-apex-theme :is(.turnaround-section,.offers-section,.blog-featured-section,section.border-y){
+  background-color:rgba(13,20,28,.92) !important;
+  border-color:#33404d !important;
+}
+
+/* 2) Ensure photography stays visible. Remove unintended image washes/overlays. */
+body.fresh-apex-theme :is(.home-ref-visual,.brand-img-card,.media-card,.blog-featured-media)::before,
+body.fresh-apex-theme :is(.home-ref-visual,.brand-img-card,.media-card,.blog-featured-media)::after{
+  content:none !important;
+  display:none !important;
+  background:none !important;
+  opacity:0 !important;
+}
+body.fresh-apex-theme :is(.home-ref-visual,.brand-img-card,.media-card,.blog-featured-media) img{
+  opacity:1 !important;
+  filter:none !important;
+  mix-blend-mode:normal !important;
+}
+
+/* Home 1 hero retains readable text while allowing the workshop image to show through. */
+html[data-theme="light"] body.page-home.fresh-apex-theme .home-ref-hero{
+  background-image:linear-gradient(90deg,rgba(235,241,245,.93) 0%,rgba(235,241,245,.80) 45%,rgba(235,241,245,.34) 100%),url('../img/showroom.webp') !important;
+}
+html[data-theme="dark"] body.page-home.fresh-apex-theme .home-ref-hero{
+  background-image:linear-gradient(90deg,rgba(8,12,17,.96) 0%,rgba(8,12,17,.82) 45%,rgba(8,12,17,.42) 100%),url('../img/showroom.webp') !important;
+}
+
+/* 3) Authorized dealer / tyre-brand photography: no overlap, predictable grid and label position. */
+body.page-home.fresh-apex-theme .home-brand-img-track{
+  display:grid !important;
+  grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+  gap:14px !important;
+  overflow:visible !important;
+  align-items:stretch !important;
+}
+body.page-home.fresh-apex-theme .home-brand-img-track .brand-img-card{
+  min-width:0 !important;
+  width:100% !important;
+  display:grid !important;
+  grid-template-rows:150px auto !important;
+  align-content:start !important;
+  overflow:hidden !important;
+  border-radius:16px !important;
+  text-decoration:none !important;
+}
+body.page-home.fresh-apex-theme .home-brand-img-track .brand-img-card img{
+  position:static !important;
+  width:100% !important;
+  height:150px !important;
+  min-height:150px !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  transform:none !important;
+}
+body.page-home.fresh-apex-theme .home-brand-img-track .brand-img-card:hover img{transform:scale(1.025) !important;}
+body.page-home.fresh-apex-theme .home-brand-img-track .brand-img-card span{
+  position:static !important;
+  inset:auto !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:42px !important;
+  padding:9px 10px !important;
+  margin:0 !important;
+  background:var(--surface) !important;
+  color:var(--fg) !important;
+  font-size:.84rem !important;
+  font-weight:600 !important;
+  line-height:1.2 !important;
+  text-align:center !important;
+  border-top:1px solid var(--border) !important;
+}
+@media(max-width:1199px){body.page-home.fresh-apex-theme .home-brand-img-track{grid-template-columns:repeat(3,minmax(0,1fr)) !important;}}
+@media(max-width:700px){
+  body.page-home.fresh-apex-theme .home-brand-img-track{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important;}
+  body.page-home.fresh-apex-theme .home-brand-img-track .brand-img-card{grid-template-rows:128px auto !important;}
+  body.page-home.fresh-apex-theme .home-brand-img-track .brand-img-card img{height:128px !important;min-height:128px !important;}
+}
+@media(max-width:380px){body.page-home.fresh-apex-theme .home-brand-img-track{grid-template-columns:1fr !important;}}
+
+/* 4) Brands page recommendation heading centered. */
+body.fresh-apex-theme #brand-guide > div > .reveal.max-w-2xl{
+  margin-inline:auto !important;
+  text-align:center !important;
+}
+body.fresh-apex-theme #brand-guide > div > .reveal.max-w-2xl > span{justify-content:center !important;}
+body.fresh-apex-theme #brand-guide > div > .btn-primary{display:flex !important;width:max-content !important;margin:1.6rem auto 0 !important;}
+
+/* 5) Blog filter: neat layout and hidden state that cannot be overridden by card display rules. */
+body.fresh-apex-theme #blog-filter-panel{
+  display:grid !important;
+  grid-template-columns:repeat(4,max-content) minmax(220px,1fr) !important;
+  gap:10px !important;
+  align-items:center !important;
+  padding:14px !important;
+  border:1px solid var(--border) !important;
+  border-radius:16px !important;
+  background:var(--surface) !important;
+}
+body.fresh-apex-theme #blog-filter-panel.filter-panel-collapsed{display:none !important;}
+body.fresh-apex-theme #blog-filter-panel .filter-btn{min-height:42px !important;white-space:nowrap !important;}
+body.fresh-apex-theme #blog-filter-panel #blog-search{margin:0 !important;max-width:none !important;min-height:42px !important;}
+body.fresh-apex-theme [data-blog-card][hidden],
+body.fresh-apex-theme [data-blog-card].hidden{display:none !important;visibility:hidden !important;}
+body.fresh-apex-theme .blog-filter-status{grid-column:1/-1;margin:0 !important;padding-top:2px !important;font-size:.82rem !important;color:var(--muted) !important;}
+body.fresh-apex-theme .blog-filter-empty{grid-column:1/-1;padding:24px;border:1px dashed var(--border);border-radius:16px;text-align:center;background:var(--surface);color:var(--muted);}
+@media(max-width:960px){body.fresh-apex-theme #blog-filter-panel{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}body.fresh-apex-theme #blog-filter-panel #blog-search{grid-column:1/-1 !important;}}
+@media(max-width:520px){body.fresh-apex-theme #blog-filter-panel{grid-template-columns:1fr !important;}body.fresh-apex-theme #blog-filter-panel #blog-search{grid-column:auto !important;}body.fresh-apex-theme #blog-filter-panel .filter-btn{width:100% !important;}}
+
+/* 6) Signed-in state must beat legacy !important mobile layout rules. */
+body.fresh-apex-theme [data-auth-guest].hidden,
+body.fresh-apex-theme [data-auth-guest][hidden]{display:none !important;visibility:hidden !important;}
+body.fresh-apex-theme .apex-mobile-user.hidden,
+body.fresh-apex-theme .apex-mobile-user[hidden]{display:none !important;}
+body.fresh-apex-theme .apex-mobile-user{
+  display:grid !important;
+  grid-template-columns:auto 1fr auto !important;
+  align-items:center !important;
+  gap:10px !important;
+  padding:10px !important;
+  border:1px solid var(--border) !important;
+  border-radius:13px !important;
+  background:var(--surface-2) !important;
+}
+body.fresh-apex-theme .apex-mobile-user-avatar{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:#f97316;color:#fff;font-weight:700;}
+body.fresh-apex-theme .apex-mobile-user-copy{min-width:0;display:flex;flex-direction:column;line-height:1.2;}
+body.fresh-apex-theme .apex-mobile-user-copy strong{font-size:.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+body.fresh-apex-theme .apex-mobile-user-copy small{font-size:.72rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+body.fresh-apex-theme .apex-mobile-user-actions{display:flex;gap:5px;}
+body.fresh-apex-theme .apex-mobile-user-actions :is(a,button){min-height:34px !important;padding:6px 8px;border-radius:9px;border:1px solid var(--border);background:var(--surface);color:var(--fg);font-size:.72rem;font-weight:600;text-decoration:none;}
+body.fresh-apex-theme .apex-mobile-user-actions :is(a,button):hover{border-color:#f97316;color:#c2410c;background:rgba(249,115,22,.08);}
+
+/* Form controls and submenu visibility. */
+html[data-theme="light"] body.fresh-apex-theme :is(.form-input,select,input,textarea,.nav-home-menu,.profile-pop){background-color:#fff !important;border-color:#b9c4cf !important;color:#0a1220 !important;}
+html[data-theme="dark"] body.fresh-apex-theme :is(.form-input,select,input,textarea,.nav-home-menu,.profile-pop){background-color:#111820 !important;border-color:#3b4856 !important;color:#f8fafc !important;}
+html[data-theme="light"] body.fresh-apex-theme :is(.nav-home-menu a,.profile-pop a,.profile-pop button){color:#334155 !important;}
+html[data-theme="dark"] body.fresh-apex-theme :is(.nav-home-menu a,.profile-pop a,.profile-pop button){color:#dbe4ee !important;}
+
+/* Accessible orange action colour: white text passes AA on the primary orange. */
+html[data-theme] body.fresh-apex-theme :is(.btn-primary,.tyre-buy-btn,.apex-register,.apex-mobile-signup,.fresh-mobile-book,.apex-mobile-cta,.filter-btn.active){
+  background:#c2410c !important;
+  background-image:none !important;
+  border-color:#c2410c !important;
+  color:#fff !important;
+  -webkit-text-fill-color:#fff !important;
+}
+html[data-theme] body.fresh-apex-theme :is(.btn-primary,.tyre-buy-btn,.apex-register,.apex-mobile-signup,.fresh-mobile-book,.apex-mobile-cta,.filter-btn.active):hover{
+  background:#9a3412 !important;
+  border-color:#9a3412 !important;
+  color:#fff !important;
+  box-shadow:0 13px 28px -17px rgba(154,52,18,.72) !important;
+}
+body.fresh-apex-theme .filter-btn:hover{background:#c2410c !important;border-color:#c2410c !important;color:#fff !important;}
