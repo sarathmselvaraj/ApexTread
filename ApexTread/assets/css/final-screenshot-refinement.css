@@ -1,0 +1,314 @@
+
+/* ======================================================================
+   ApexTread screenshot-driven refinement pass
+   Modern glass header actions · image fit · fleet fill · blog readability
+   ====================================================================== */
+
+/* ---------- Header / nav: premium glass controls, same Apex orange palette ---------- */
+body.fresh-apex-theme .apex-pro-header{
+  background:color-mix(in srgb,var(--bg) 83%,transparent)!important;
+  backdrop-filter:blur(24px) saturate(145%)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(145%)!important;
+  border-bottom:1px solid color-mix(in srgb,var(--border) 75%,transparent)!important;
+  box-shadow:0 10px 34px rgba(15,23,42,.08)!important;
+}
+body.fresh-apex-theme .apex-header-inner{align-items:center!important;gap:14px!important}
+body.fresh-apex-theme .apex-main-nav{
+  padding:5px!important;
+  border:1px solid color-mix(in srgb,var(--border) 90%,transparent)!important;
+  border-radius:18px!important;
+  background:color-mix(in srgb,var(--surface) 72%,transparent)!important;
+  backdrop-filter:blur(18px) saturate(135%)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(135%)!important;
+  box-shadow:0 10px 28px rgba(15,23,42,.06)!important;
+}
+body.fresh-apex-theme .apex-main-nav .nav-link,
+body.fresh-apex-theme .apex-main-nav summary.nav-link{
+  min-height:38px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:0 11px!important;
+  border-radius:12px!important;
+}
+body.fresh-apex-theme .apex-main-nav .nav-link.active,
+body.fresh-apex-theme .apex-main-nav summary.nav-link.active{
+  background:color-mix(in srgb,var(--brand) 10%,var(--surface))!important;
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--brand) 34%,var(--border))!important;
+}
+
+body.fresh-apex-theme .apex-header-actions{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:7px!important;
+  min-width:0!important;
+  flex:0 0 auto!important;
+}
+body.fresh-apex-theme .apex-auth-guest{display:flex!important;align-items:center!important;gap:7px!important}
+body.fresh-apex-theme .apex-dir-switch,
+body.fresh-apex-theme .apex-theme-icon-btn,
+body.fresh-apex-theme .service-plan-nav,
+body.fresh-apex-theme .apex-signin{
+  border:1px solid color-mix(in srgb,var(--border) 92%,transparent)!important;
+  background:color-mix(in srgb,var(--surface) 72%,transparent)!important;
+  backdrop-filter:blur(16px) saturate(145%)!important;
+  -webkit-backdrop-filter:blur(16px) saturate(145%)!important;
+  box-shadow:0 10px 26px rgba(15,23,42,.07),inset 0 1px 0 rgba(255,255,255,.35)!important;
+}
+body.fresh-apex-theme .apex-dir-switch{
+  min-height:44px!important;
+  padding:4px!important;
+  border-radius:14px!important;
+}
+body.fresh-apex-theme .apex-dir-switch button{
+  min-width:40px!important;
+  height:36px!important;
+  border-radius:10px!important;
+  padding:0 9px!important;
+  font-size:.77rem!important;
+  font-weight:800!important;
+}
+body.fresh-apex-theme .apex-dir-switch button.is-active{
+  background:linear-gradient(135deg,#ff8b32,var(--brand))!important;
+  color:#fff!important;
+  box-shadow:0 7px 17px rgba(249,115,22,.24)!important;
+}
+body.fresh-apex-theme .apex-theme-icon-btn,
+body.fresh-apex-theme .service-plan-nav{
+  width:44px!important;height:44px!important;min-width:44px!important;max-width:44px!important;
+  border-radius:14px!important;padding:0!important;display:grid!important;place-items:center!important;
+}
+body.fresh-apex-theme .apex-theme-icon-btn:hover,
+body.fresh-apex-theme .service-plan-nav:hover,
+body.fresh-apex-theme .apex-signin:hover{
+  border-color:color-mix(in srgb,var(--brand) 52%,var(--border))!important;
+  background:color-mix(in srgb,var(--brand) 7%,var(--surface))!important;
+  color:var(--brand)!important;
+  transform:translateY(-1px)!important;
+  box-shadow:0 13px 30px rgba(15,23,42,.09),0 0 0 3px color-mix(in srgb,var(--brand) 8%,transparent)!important;
+}
+body.fresh-apex-theme .apex-signin{
+  height:44px!important;min-height:44px!important;padding:0 13px!important;border-radius:14px!important;
+  gap:7px!important;white-space:nowrap!important;
+}
+body.fresh-apex-theme .apex-register{
+  height:44px!important;min-height:44px!important;padding:0 15px!important;border-radius:14px!important;
+  background:linear-gradient(135deg,#ff8a32,var(--brand) 58%,#ea580c)!important;
+  border:1px solid rgba(255,255,255,.18)!important;color:#fff!important;
+  box-shadow:0 12px 25px rgba(249,115,22,.24),inset 0 1px 0 rgba(255,255,255,.26)!important;
+  white-space:nowrap!important;
+}
+body.fresh-apex-theme .apex-register:hover{transform:translateY(-2px)!important;box-shadow:0 16px 30px rgba(249,115,22,.31)!important}
+body.fresh-apex-theme .service-plan-nav .service-plan-nav-icon,
+body.fresh-apex-theme .apex-theme-icon-btn .apex-action-icon,
+body.fresh-apex-theme .apex-signin .apex-action-icon{width:18px!important;height:18px!important}
+
+html[data-theme="dark"] body.fresh-apex-theme .apex-main-nav,
+html[data-theme="dark"] body.fresh-apex-theme .apex-dir-switch,
+html[data-theme="dark"] body.fresh-apex-theme .apex-theme-icon-btn,
+html[data-theme="dark"] body.fresh-apex-theme .service-plan-nav,
+html[data-theme="dark"] body.fresh-apex-theme .apex-signin{
+  background:rgba(18,25,34,.70)!important;
+  border-color:rgba(255,255,255,.13)!important;
+  box-shadow:0 10px 28px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.06)!important;
+}
+html[data-theme="dark"] body.fresh-apex-theme .apex-main-nav .nav-link.active,
+html[data-theme="dark"] body.fresh-apex-theme .apex-main-nav summary.nav-link.active{
+  background:rgba(249,115,22,.14)!important;color:#ffb078!important;box-shadow:inset 0 0 0 1px rgba(249,115,22,.28)!important;
+}
+
+/* Prevent action clipping on standard 1280/1366 laptop widths. */
+@media (min-width:1024px) and (max-width:1399px){
+  body.fresh-apex-theme .apex-header-shell{padding-left:12px!important;padding-right:12px!important;max-width:none!important}
+  body.fresh-apex-theme .apex-header-inner{gap:9px!important}
+  body.fresh-apex-theme .apex-brand-name{font-size:1.1rem!important}
+  body.fresh-apex-theme .apex-main-nav{gap:0!important;padding:4px!important}
+  body.fresh-apex-theme .apex-main-nav .nav-link,body.fresh-apex-theme .apex-main-nav summary.nav-link{font-size:.77rem!important;padding:0 8px!important}
+  body.fresh-apex-theme .apex-header-actions{gap:5px!important}
+  body.fresh-apex-theme .apex-dir-switch button{min-width:36px!important;padding:0 7px!important}
+  body.fresh-apex-theme .apex-theme-icon-btn,body.fresh-apex-theme .service-plan-nav{width:40px!important;height:40px!important;min-width:40px!important;max-width:40px!important}
+  body.fresh-apex-theme .apex-signin,body.fresh-apex-theme .apex-register{height:40px!important;min-height:40px!important;padding:0 10px!important;font-size:.78rem!important;border-radius:12px!important}
+  body.fresh-apex-theme .apex-signin .apex-action-icon{width:15px!important;height:15px!important}
+}
+@media(max-width:1023px){
+  body.fresh-apex-theme .apex-header-actions>:not(.apex-menu-btn){display:none!important}
+  body.fresh-apex-theme .apex-menu-btn{border-radius:14px!important;background:color-mix(in srgb,var(--surface) 74%,transparent)!important;backdrop-filter:blur(14px)!important}
+}
+
+/* ---------- Content-card image fit: edge to edge, consistent crop ---------- */
+body.fresh-apex-theme .surface-card.media-card,
+body.fresh-apex-theme .service-catalogue [data-service-card],
+body.fresh-apex-theme .blog-card{
+  padding:0!important;
+  overflow:hidden!important;
+}
+body.fresh-apex-theme .service-catalogue [data-service-card]>img,
+body.fresh-apex-theme .surface-card.media-card>img,
+body.fresh-apex-theme .blog-card>img,
+body.fresh-apex-theme .blog-card a>img{
+  width:100%!important;
+  height:250px!important;
+  min-height:250px!important;
+  margin:0!important;
+  padding:0!important;
+  display:block!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  border-radius:0!important;
+  clip-path:none!important;
+}
+body.fresh-apex-theme .service-catalogue [data-service-card]{border-radius:22px!important}
+body.fresh-apex-theme .service-catalogue [data-service-card] .card-grow{padding:20px 24px 15px!important}
+body.fresh-apex-theme .service-catalogue [data-service-card] .service-card-actions{padding:14px 24px 20px!important;border-top:1px solid var(--border)!important}
+body.fresh-apex-theme .service-catalogue [data-service-card] h2{margin-top:15px!important}
+body.fresh-apex-theme .service-catalogue [data-service-card] p{margin-bottom:0!important}
+@media(max-width:767px){
+  body.fresh-apex-theme .service-catalogue [data-service-card]>img,
+  body.fresh-apex-theme .surface-card.media-card>img,
+  body.fresh-apex-theme .blog-card>img,
+  body.fresh-apex-theme .blog-card a>img{height:215px!important;min-height:215px!important}
+}
+
+/* ---------- Home 2: fill fleet-value panel without changing its layout ---------- */
+body[data-page-name="home-2"] .fleet-value-grid{align-items:stretch!important}
+body[data-page-name="home-2"] .fleet-value-panel{height:100%!important;display:flex!important;flex-direction:column!important}
+body[data-page-name="home-2"] .fleet-benefit-list{flex:1!important;align-content:start!important}
+body[data-page-name="home-2"] .fleet-benefit-item{min-height:96px!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+body[data-page-name="home-2"] .fleet-location-card{justify-content:space-between!important}
+
+/* ---------- Blog detail hero: force readable copy over orange/image overlay ---------- */
+body[data-page-name^="blog-"]:not([data-page-name="blog-list"]) .page-hero.apex-reference-hero{
+  min-height:430px!important;
+  display:grid!important;
+  place-items:center!important;
+  background:
+    linear-gradient(100deg,rgba(5,8,12,.90) 0%,rgba(44,20,8,.77) 48%,rgba(5,8,12,.86) 100%),
+    url('../img/showroom.webp') center 46%/cover no-repeat!important;
+}
+body[data-page-name^="blog-"] .page-hero.apex-reference-hero::before{
+  background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.28))!important;
+}
+body[data-page-name^="blog-"] .page-hero.apex-reference-hero::after{opacity:.24!important}
+html[data-theme="light"] body[data-page-name^="blog-"] .page-hero.apex-reference-hero :is(h1,h2,h3),
+html[data-theme="dark"] body[data-page-name^="blog-"] .page-hero.apex-reference-hero :is(h1,h2,h3),
+body[data-page-name^="blog-"] .page-hero.apex-reference-hero :is(h1,h2,h3){
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  text-shadow:0 4px 26px rgba(0,0,0,.70)!important;
+}
+html[data-theme="light"] body[data-page-name^="blog-"] .page-hero.apex-reference-hero p,
+html[data-theme="dark"] body[data-page-name^="blog-"] .page-hero.apex-reference-hero p,
+body[data-page-name^="blog-"] .page-hero.apex-reference-hero p{
+  color:#f3f4f6!important;
+  -webkit-text-fill-color:#f3f4f6!important;
+  text-shadow:0 3px 16px rgba(0,0,0,.72)!important;
+}
+body[data-page-name^="blog-"] .page-hero.apex-reference-hero .text-heat,
+body[data-page-name^="blog-"] .page-hero.apex-reference-hero .inline-flex{color:#ffc18d!important;-webkit-text-fill-color:#ffc18d!important}
+body[data-page-name^="blog-"] .page-hero.apex-reference-hero .hero-copy-center{max-width:900px!important;padding:34px 26px!important;border:1px solid rgba(255,255,255,.15)!important;border-radius:26px!important;background:rgba(7,10,14,.27)!important;backdrop-filter:blur(7px)!important;-webkit-backdrop-filter:blur(7px)!important}
+body[data-page-name^="blog-"] .page-hero.apex-reference-hero h1{font-size:clamp(2.55rem,5vw,5rem)!important;line-height:.98!important;max-width:900px!important}
+
+/* ---------- Blog detail body: integrated premium article, not a plain white rectangle ---------- */
+body[data-page-name^="blog-"] .apex-blog-article-section{
+  position:relative!important;
+  max-width:1120px!important;
+  padding-top:64px!important;
+  padding-bottom:72px!important;
+}
+body[data-page-name^="blog-"] .apex-blog-lead-image{
+  width:100%!important;
+  max-height:520px!important;
+  aspect-ratio:16/8.7!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  border-radius:26px!important;
+  border:1px solid var(--border)!important;
+  box-shadow:0 28px 70px rgba(15,23,42,.18)!important;
+}
+body[data-page-name^="blog-"] .apex-blog-article{
+  position:relative!important;
+  margin-top:-54px!important;
+  max-width:860px!important;
+  padding:46px 52px!important;
+  border-radius:28px!important;
+  background:color-mix(in srgb,var(--surface) 94%,transparent)!important;
+  border:1px solid color-mix(in srgb,var(--border) 88%,transparent)!important;
+  box-shadow:0 26px 70px rgba(15,23,42,.12)!important;
+  backdrop-filter:blur(14px)!important;
+  -webkit-backdrop-filter:blur(14px)!important;
+}
+body[data-page-name^="blog-"] .apex-blog-article::before{
+  content:"APEXTREAD WORKSHOP JOURNAL";
+  display:inline-flex;
+  margin-bottom:24px;
+  padding:7px 11px;
+  border-radius:999px;
+  background:color-mix(in srgb,var(--brand) 11%,var(--surface));
+  color:var(--brand);
+  font-size:.68rem;
+  font-weight:900;
+  letter-spacing:.16em;
+}
+body[data-page-name^="blog-"] .apex-blog-article h2{
+  margin-top:42px!important;
+  color:var(--fg)!important;
+  font-size:clamp(1.75rem,3vw,2.45rem)!important;
+  line-height:1.08!important;
+  letter-spacing:-.025em!important;
+  text-transform:none!important;
+}
+body[data-page-name^="blog-"] .apex-blog-article h2:first-of-type{margin-top:18px!important}
+body[data-page-name^="blog-"] .apex-blog-article p{
+  color:var(--muted)!important;
+  font-size:1.03rem!important;
+  line-height:1.85!important;
+  margin-top:18px!important;
+}
+body[data-page-name^="blog-"] .apex-blog-article .surface-card{
+  margin-top:34px!important;
+  padding:26px!important;
+  border-radius:20px!important;
+  background:color-mix(in srgb,var(--brand) 5%,var(--surface))!important;
+  border-color:color-mix(in srgb,var(--brand) 20%,var(--border))!important;
+}
+html[data-theme="dark"] body[data-page-name^="blog-"] .apex-blog-article{
+  background:rgba(16,23,31,.93)!important;
+  border-color:rgba(255,255,255,.10)!important;
+  box-shadow:0 30px 80px rgba(0,0,0,.30)!important;
+}
+html[data-theme="dark"] body[data-page-name^="blog-"] .apex-blog-article p{color:#cbd5df!important}
+html[data-theme="dark"] body[data-page-name^="blog-"] .apex-blog-article h2{color:#f8fafc!important}
+@media(max-width:767px){
+  body[data-page-name^="blog-"] .page-hero.apex-reference-hero{min-height:360px!important}
+  body[data-page-name^="blog-"] .page-hero.apex-reference-hero .hero-copy-center{padding:24px 18px!important;border-radius:20px!important;background:rgba(5,8,12,.38)!important}
+  body[data-page-name^="blog-"] .page-hero.apex-reference-hero h1{font-size:clamp(2.15rem,10vw,3.35rem)!important;line-height:1!important}
+  body[data-page-name^="blog-"] .page-hero.apex-reference-hero p{font-size:.92rem!important;line-height:1.55!important}
+  body[data-page-name^="blog-"] .apex-blog-article-section{padding-top:36px!important;padding-bottom:48px!important}
+  body[data-page-name^="blog-"] .apex-blog-lead-image{border-radius:20px!important;aspect-ratio:4/3!important;max-height:340px!important}
+  body[data-page-name^="blog-"] .apex-blog-article{margin-top:-22px!important;padding:28px 20px!important;border-radius:22px!important}
+  body[data-page-name^="blog-"] .apex-blog-article p{font-size:.98rem!important;line-height:1.75!important}
+  body[data-page-name^="blog-"] .apex-blog-article h2{margin-top:32px!important;font-size:1.8rem!important}
+}
+
+/* ---------- Footer brand lockup exactly same visual scale as header ---------- */
+body.fresh-apex-theme .apex-footer-logo .apex-logo-frame,
+body.fresh-apex-theme .apex-header-logo-mark{width:46px!important;height:38px!important;min-width:46px!important;flex-basis:46px!important}
+body.fresh-apex-theme .apex-footer-logo .apex-shared-logo-image,
+body.fresh-apex-theme .apex-header-logo-mark .apex-shared-logo-image{width:46px!important;height:34px!important;max-width:46px!important;max-height:34px!important;object-fit:contain!important}
+body.fresh-apex-theme .apex-footer-logo .apex-brand-name,
+body.fresh-apex-theme .apex-pro-header .apex-brand-name{font-size:1.24rem!important;line-height:1!important}
+@media(max-width:767px){
+  body.fresh-apex-theme .apex-footer-logo .apex-logo-frame,
+  body.fresh-apex-theme .apex-header-logo-mark{width:40px!important;height:32px!important;min-width:40px!important;flex-basis:40px!important}
+  body.fresh-apex-theme .apex-footer-logo .apex-shared-logo-image,
+  body.fresh-apex-theme .apex-header-logo-mark .apex-shared-logo-image{width:40px!important;height:30px!important;max-width:40px!important;max-height:30px!important}
+  body.fresh-apex-theme .apex-footer-logo .apex-brand-name,
+  body.fresh-apex-theme .apex-pro-header .apex-brand-name{font-size:1.08rem!important}
+}
+
+/* ---------- Global contrast guard for mobile / overlay copy ---------- */
+@media(max-width:767px){
+  body.fresh-apex-theme :is(.page-hero,.apex-reference-hero,.fleet-pro-hero,.home-ref-hero) :is(h1,h2,h3){text-shadow:0 3px 18px rgba(0,0,0,.72)!important}
+  body.fresh-apex-theme :is(.page-hero,.apex-reference-hero,.fleet-pro-hero,.home-ref-hero) p{color:#f3f4f6!important;text-shadow:0 2px 12px rgba(0,0,0,.68)!important}
+}
