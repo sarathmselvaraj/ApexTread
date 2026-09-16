@@ -7,33 +7,124 @@
   function advancedTyreFilters(){
     const cards=$$('.tyre-product-card');
     if(!cards.length || !$('#apex-vehicle-filter')) return;
+
     const controls=['vehicle','size','brand','price','type'].reduce((o,k)=>(o[k]=$(`#apex-${k}-filter`),o),{});
-    const search=$('#tyre-product-search'), tierBtns=$$('[data-tyre-tier-filter]'), count=$('[data-tyre-result-count]'), status=$('#tyre-search-status'), sort=$('#apex-sort-filter'), grid=$('[data-tyre-grid]');
-    let tier='all';
-    tierBtns.forEach(b=>b.addEventListener('click',()=>{tier=b.dataset.tyreTierFilter||'all';tierBtns.forEach(x=>x.classList.toggle('active',x===b));run();}));
-    Object.values(controls).forEach(c=>c&&c.addEventListener('change',run));
-    if(search) search.addEventListener('input',run);
-    if(sort) sort.addEventListener('change',run);
+    const search=$('#tyre-product-search');
+    const tierBtns=$$('[data-tyre-tier-filter]');
+    const count=$('[data-tyre-result-count]');
+    const status=$('#tyre-search-status');
+    const sort=$('#apex-sort-filter');
+    const grid=$('[data-tyre-grid]');
     const reset=$('[data-reset-tyre-filters]');
-    if(reset) reset.addEventListener('click',()=>{Object.values(controls).forEach(c=>{if(c)c.value='all'}); if(search)search.value=''; if(sort)sort.value='recommended'; tier='all'; tierBtns.forEach(b=>b.classList.toggle('active',(b.dataset.tyreTierFilter||'all')==='all')); run();});
-    function priceOk(card,val){if(val==='all')return true;const p=Number(card.dataset.price||0);if(val==='under7000')return p<7000;if(val==='7000-9000')return p>=7000&&p<=9000;if(val==='over9000')return p>9000;return true}
-    function run(){
-      const q=(search?.value||'').trim().toLowerCase(); let shown=0;
-      cards.forEach(card=>{
-        const okTier=tier==='all'||card.dataset.tier===tier;
-        const okVehicle=!controls.vehicle||controls.vehicle.value==='all'||(card.dataset.vehicle||'').split(',').includes(controls.vehicle.value);
-        const okSize=!controls.size||controls.size.value==='all'||card.dataset.size===controls.size.value;
-        const okBrand=!controls.brand||controls.brand.value==='all'||card.dataset.brand===controls.brand.value;
-        const okType=!controls.type||controls.type.value==='all'||card.dataset.tyreType===controls.type.value;
-        const okPrice=!controls.price||priceOk(card,controls.price.value);
-        const okQ=!q||card.textContent.toLowerCase().includes(q);
-        const ok=okTier&&okVehicle&&okSize&&okBrand&&okType&&okPrice&&okQ;
-        card.hidden=!ok;card.classList.toggle('tyre-search-hidden',!ok); if(ok)shown++;
-      });
-      if(count)count.textContent=String(shown);
-      if(status) status.innerHTML='<strong data-tyre-result-count>'+shown+'</strong>'+(shown===1?' tyre available':' tyres available');
-      if(grid && sort){const ordered=cards.slice(), mode=sort.value; if(mode==='price-asc')ordered.sort((a,b)=>Number(a.dataset.price||0)-Number(b.dataset.price||0)); else if(mode==='price-desc')ordered.sort((a,b)=>Number(b.dataset.price||0)-Number(a.dataset.price||0)); else if(mode==='brand-asc')ordered.sort((a,b)=>(a.dataset.brand||'').localeCompare(b.dataset.brand||'')); ordered.forEach(c=>grid.appendChild(c));}
+    const clear=$('[data-tyre-search-clear]');
+    const empty=$('[data-tyre-empty]');
+    const originalOrder=cards.slice();
+    let tier='all';
+
+    function normalize(value){return String(value||'').trim().toLowerCase();}
+    function priceOk(card,val){
+      if(val==='all') return true;
+      const p=Number(card.dataset.price||0);
+      if(val==='under7000') return p<7000;
+      if(val==='7000-9000') return p>=7000&&p<=9000;
+      if(val==='over9000') return p>9000;
+      return true;
     }
+    function searchableText(card){
+      return normalize([
+        card.textContent,
+        card.dataset.brand,
+        card.dataset.size,
+        card.dataset.tier,
+        card.dataset.tyreType,
+        card.dataset.vehicle
+      ].join(' '));
+    }
+    function updateEmptyState(shown){
+      if(!empty) return;
+      empty.hidden=shown!==0;
+      empty.classList.toggle('is-visible',shown===0);
+      empty.setAttribute('aria-hidden',shown===0?'false':'true');
+    }
+    function updateStatus(shown){
+      if(count) count.textContent=String(shown);
+      if(status){
+        status.innerHTML='<strong data-tyre-result-count>'+shown+'</strong>'+(shown===1?' tyre available':' tyres available');
+      }
+    }
+    function sortCards(){
+      if(!grid) return;
+      const mode=sort?.value||'recommended';
+      const ordered=originalOrder.slice();
+      if(mode==='price-asc') ordered.sort((a,b)=>Number(a.dataset.price||0)-Number(b.dataset.price||0));
+      else if(mode==='price-desc') ordered.sort((a,b)=>Number(b.dataset.price||0)-Number(a.dataset.price||0));
+      else if(mode==='brand-asc') ordered.sort((a,b)=>normalize(a.dataset.brand).localeCompare(normalize(b.dataset.brand)));
+      ordered.forEach(card=>grid.appendChild(card));
+    }
+    function run(){
+      const q=normalize(search?.value);
+      let shown=0;
+      cards.forEach(card=>{
+        const okTier=tier==='all'||normalize(card.dataset.tier)===tier;
+        const selectedVehicle=normalize(controls.vehicle?.value||'all');
+        const vehicles=normalize(card.dataset.vehicle).split(',').map(v=>v.trim()).filter(Boolean);
+        const okVehicle=selectedVehicle==='all'||vehicles.includes(selectedVehicle);
+        const selectedSize=controls.size?.value||'all';
+        const okSize=selectedSize==='all'||String(card.dataset.size||'')===selectedSize;
+        const selectedBrand=normalize(controls.brand?.value||'all');
+        const okBrand=selectedBrand==='all'||normalize(card.dataset.brand)===selectedBrand;
+        const selectedType=normalize(controls.type?.value||'all');
+        const okType=selectedType==='all'||normalize(card.dataset.tyreType)===selectedType;
+        const okPrice=priceOk(card,controls.price?.value||'all');
+        const okQuery=!q||searchableText(card).includes(q);
+        const visible=okTier&&okVehicle&&okSize&&okBrand&&okType&&okPrice&&okQuery;
+        card.hidden=!visible;
+        card.classList.toggle('tyre-search-hidden',!visible);
+        card.setAttribute('aria-hidden',visible?'false':'true');
+        if(visible) shown++;
+      });
+      sortCards();
+      updateStatus(shown);
+      updateEmptyState(shown);
+      if(clear) clear.classList.toggle('is-visible',!!q);
+    }
+    function setTier(btn){
+      tier=normalize(btn?.dataset.tyreTierFilter||'all')||'all';
+      tierBtns.forEach(x=>{
+        const on=x===btn;
+        x.classList.toggle('active',on);
+        x.setAttribute('aria-pressed',on?'true':'false');
+      });
+      run();
+    }
+
+    tierBtns.forEach(btn=>{
+      btn.setAttribute('aria-pressed',btn.classList.contains('active')?'true':'false');
+      btn.addEventListener('click',()=>setTier(btn));
+    });
+    Object.values(controls).forEach(control=>control&&control.addEventListener('change',run));
+    if(search){
+      search.addEventListener('input',run);
+      search.addEventListener('search',run);
+    }
+    if(sort) sort.addEventListener('change',run);
+    if(clear) clear.addEventListener('click',()=>{
+      if(search){search.value=''; search.focus();}
+      run();
+    });
+    if(reset) reset.addEventListener('click',()=>{
+      Object.values(controls).forEach(control=>{if(control) control.value='all';});
+      if(search) search.value='';
+      if(sort) sort.value='recommended';
+      tier='all';
+      tierBtns.forEach(btn=>{
+        const on=normalize(btn.dataset.tyreTierFilter||'all')==='all';
+        btn.classList.toggle('active',on);
+        btn.setAttribute('aria-pressed',on?'true':'false');
+      });
+      run();
+    });
+
     run();
   }
 

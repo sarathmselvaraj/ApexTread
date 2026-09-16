@@ -79,6 +79,10 @@
     var input=$('#tyre-product-search');
     var grid=$('[data-tyre-grid]');
     if(!input||!grid)return;
+    /* Advanced Home 1 filters are owned by pro-corrections.js.
+       Avoid attaching a second search-only listener that can re-show cards
+       which should remain hidden by vehicle/brand/price/type filters. */
+    if($('#apex-vehicle-filter')) return;
     var cards=$$('.tyre-product-card',grid);
     var count=$('[data-tyre-result-count]');
     var status=$('#tyre-search-status');

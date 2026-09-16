@@ -17,7 +17,97 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Barlow:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="assets/css/tailwind-local.css" rel="stylesheet"/>
 <link href="assets/css/style.css?v=premium-tyre-hub-2026" rel="stylesheet"/>
-<link href="assets/css/pro-corrections.css" rel="stylesheet"/><link href="assets/css/fresh-theme.css" rel="stylesheet"/><link href="assets/css/compact-text-pass.css" rel="stylesheet"/><link href="assets/css/home-premium-equal.css" rel="stylesheet"/><meta content="#f97316" name="theme-color"/><link href="assets/css/final-godmode-polish.css" rel="stylesheet"/><link href="assets/css/final-home1-visual-polish.css" rel="stylesheet"/><link href="assets/css/final-background-filter-card-nav-polish.css" rel="stylesheet"/><link href="assets/css/final-home1-filter-bay-nav-fix.css" rel="stylesheet"/><link href="assets/css/final-light-filter-reference-fix.css" rel="stylesheet"/><link href="assets/css/final-contrast-overlay-auth-blog-fix.css" rel="stylesheet"/><link href="assets/css/final-white-orange-marquee-visibility.css" rel="stylesheet"/><link href="assets/css/final-orange-hero-blog-filter.css" rel="stylesheet"/><link href="assets/css/final-addto-all-responsive.css" rel="stylesheet"/><link href="assets/css/final-user-request-polish.css" rel="stylesheet"/><link href="assets/css/final-screenshot-refinement.css" rel="stylesheet"/><link href="assets/css/final-strict-modern-navbar-v2.css" rel="stylesheet"/><link href="assets/css/final-navbar-direction-center-v3.css" rel="stylesheet"/><link href="assets/css/final-navbar-alignment-v4.css" rel="stylesheet"/><link href="assets/css/final-navbar-mobile-center-v5.css" rel="stylesheet"/><link href="assets/css/final-dir-pricing-mobile-v6.css" rel="stylesheet"/><link href="assets/css/final-mobile-menu-contrast-v7.css" rel="stylesheet"/><link href="assets/css/final-home1-tyre-stock-premium-v9.css" rel="stylesheet"/><link href="assets/css/final-home1-tyre-stock-reference-v10.css" rel="stylesheet"/></head>
+<link href="assets/css/pro-corrections.css" rel="stylesheet"/><link href="assets/css/fresh-theme.css" rel="stylesheet"/><link href="assets/css/compact-text-pass.css" rel="stylesheet"/><link href="assets/css/home-premium-equal.css" rel="stylesheet"/><meta content="#f97316" name="theme-color"/><link href="assets/css/final-godmode-polish.css" rel="stylesheet"/><link href="assets/css/final-home1-visual-polish.css" rel="stylesheet"/><link href="assets/css/final-background-filter-card-nav-polish.css" rel="stylesheet"/><link href="assets/css/final-home1-filter-bay-nav-fix.css" rel="stylesheet"/><link href="assets/css/final-light-filter-reference-fix.css" rel="stylesheet"/><link href="assets/css/final-contrast-overlay-auth-blog-fix.css" rel="stylesheet"/><link href="assets/css/final-white-orange-marquee-visibility.css" rel="stylesheet"/><link href="assets/css/final-orange-hero-blog-filter.css" rel="stylesheet"/><link href="assets/css/final-addto-all-responsive.css" rel="stylesheet"/><link href="assets/css/final-user-request-polish.css" rel="stylesheet"/><link href="assets/css/final-screenshot-refinement.css" rel="stylesheet"/><link href="assets/css/final-strict-modern-navbar-v2.css" rel="stylesheet"/><link href="assets/css/final-navbar-direction-center-v3.css" rel="stylesheet"/><link href="assets/css/final-navbar-alignment-v4.css" rel="stylesheet"/><link href="assets/css/final-navbar-mobile-center-v5.css" rel="stylesheet"/><link href="assets/css/final-dir-pricing-mobile-v6.css" rel="stylesheet"/><link href="assets/css/final-mobile-menu-contrast-v7.css" rel="stylesheet"/><link href="assets/css/final-home1-tyre-stock-premium-v9.css" rel="stylesheet"/><link href="assets/css/final-home1-tyre-stock-reference-v10.css" rel="stylesheet"/>
+<style id="hero-workshop-stats-alignment-fix">
+/* Home 1 hero workshop stats — page-local alignment fix.
+   Kept inside index.html so no shared CSS file needs to change. */
+@media (min-width: 768px){
+  body.page-home.fresh-apex-theme .home-ref-visual .home-ref-stats{
+    width:250px!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:0!important;
+    padding:10px!important;
+  }
+  body.page-home.fresh-apex-theme .home-ref-visual .home-ref-stats>div{
+    display:grid!important;
+    grid-template-columns:96px minmax(0,1fr)!important;
+    align-items:center!important;
+    column-gap:12px!important;
+    min-height:64px!important;
+    padding:11px 10px!important;
+    margin:0!important;
+    text-align:left!important;
+    border-radius:0!important;
+    border-left:0!important;
+    border-right:0!important;
+    border-top:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+  }
+  body.page-home.fresh-apex-theme .home-ref-visual .home-ref-stats>div:last-child{
+    border-bottom:0!important;
+  }
+  body.page-home.fresh-apex-theme .home-ref-visual .home-ref-stats strong{
+    display:block!important;
+    width:auto!important;
+    min-width:0!important;
+    margin:0!important;
+    font-size:1.5rem!important;
+    line-height:1!important;
+    letter-spacing:-.02em!important;
+    white-space:nowrap!important;
+    text-align:left!important;
+  }
+  body.page-home.fresh-apex-theme .home-ref-visual .home-ref-stats span{
+    display:block!important;
+    min-width:0!important;
+    margin:0!important;
+    font-size:.7rem!important;
+    line-height:1.2!important;
+    font-weight:700!important;
+    white-space:nowrap!important;
+    text-align:left!important;
+  }
+  [dir="rtl"] body.page-home.fresh-apex-theme .home-ref-visual .home-ref-stats>div{
+    grid-template-columns:minmax(0,1fr) 96px!important;
+    text-align:right!important;
+  }
+  [dir="rtl"] body.page-home.fresh-apex-theme .home-ref-visual .home-ref-stats strong,
+  [dir="rtl"] body.page-home.fresh-apex-theme .home-ref-visual .home-ref-stats span{
+    text-align:right!important;
+  }
+  [dir="rtl"] body.page-home.fresh-apex-theme .home-ref-visual .home-ref-stats strong{grid-column:2!important;}
+  [dir="rtl"] body.page-home.fresh-apex-theme .home-ref-visual .home-ref-stats span{grid-column:1!important;grid-row:1!important;}
+}
+
+@media (max-width: 767.98px){
+  body.page-home.fresh-apex-theme .home-ref-visual .home-ref-stats>div{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:5px!important;
+    text-align:center!important;
+  }
+  body.page-home.fresh-apex-theme .home-ref-visual .home-ref-stats strong{
+    display:block!important;
+    width:100%!important;
+    margin:0!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+    text-align:center!important;
+  }
+  body.page-home.fresh-apex-theme .home-ref-visual .home-ref-stats span{
+    display:block!important;
+    width:100%!important;
+    margin:0!important;
+    line-height:1.15!important;
+    text-align:center!important;
+  }
+}
+</style>
+<link href="assets/css/final-second-correction-v11.css" rel="stylesheet"/><link href="assets/css/final-subheading-responsive-v12.css" rel="stylesheet"/><link href="assets/css/final-auth-modal-contrast-v13.css" rel="stylesheet"/><link href="assets/css/final-home-functional-alignment-v14.css" rel="stylesheet"/><link href="assets/css/final-card-grid-alignment-v16.css" rel="stylesheet"/></head>
 <body class="page-home apex-reference-layout home-light-redesign fresh-apex-theme premium-home-equal" data-page-name="index">
 <header class="sticky top-0 z-50 border-b apex-pro-header" style="border-color:var(--border)">
 <div class="mx-auto max-w-7xl px-5 apex-header-shell">
@@ -42,7 +132,7 @@
 <a class="nav-link" href="contact.html">Contact</a>
 </nav>
 <div class="apex-header-actions">
-<button aria-label="Toggle text direction" class="apex-dir-toggle" data-toggle-dir="" title="Switch direction to RTL" type="button"><span aria-hidden="true" class="apex-action-icon"><svg viewbox="0 0 24 24"><path d="M7 7h11"></path><path d="m15 4 3 3-3 3"></path><path d="M17 17H6"></path><path d="m9 14-3 3 3 3"></path></svg></span><span class="apex-action-label">Direction LTR</span></button><button aria-label="Toggle light and dark mode" class="mode-btn apex-theme-icon-btn" data-toggle-theme=""><span aria-hidden="true" class="apex-action-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"></path></svg></span><span class="apex-action-label">Dark</span></button>
+<button aria-label="Toggle text direction" class="apex-dir-toggle" data-toggle-dir="" title="Switch direction to RTL" type="button"><span aria-hidden="true" class="apex-action-icon"><svg viewbox="0 0 24 24"><path d="M7 7h11"></path><path d="m15 4 3 3-3 3"></path><path d="M17 17H6"></path><path d="m9 14-3 3 3 3"></path></svg></span><span class="apex-action-label">Direction LTR</span></button><button aria-label="Toggle light and dark mode" class="mode-btn apex-theme-icon-btn" data-toggle-theme="" type="button"><span aria-hidden="true" class="apex-action-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"></path></svg></span><span class="apex-action-label">Dark</span></button>
 <button aria-label="My service plan, no services selected" class="service-plan-nav" data-open-plan="" id="service-plan-nav" title="My Service Plan" type="button"><span aria-hidden="true" class="service-plan-nav-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 3.5h10a2 2 0 0 1 2 2v15l-7-3.4L5 20.5v-15a2 2 0 0 1 2-2Z"></path><path d="m9.2 11.9 2-2 1.5 1.5 3.2-3.2"></path></svg></span><span class="service-plan-nav-label">Saved Services</span><b class="hidden" data-plan-count="">0</b></button>
 <div class="apex-auth-guest" data-auth-guest="">
 <a aria-label="Sign In" class="apex-signin" href="login.html" title="Sign In"><span aria-hidden="true" class="apex-action-icon apex-nav-action-icon"><svg viewbox="0 0 24 24"><circle cx="12" cy="8" r="3.25"></circle><path d="M5.5 20c.55-4.05 2.8-6.1 6.5-6.1s5.95 2.05 6.5 6.1"></path></svg></span><span class="apex-action-label">Sign In</span></a>
@@ -55,7 +145,7 @@
 <a href="profile.html">My profile</a><button data-logout="" type="button">Sign out</button>
 </div>
 </details>
-<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation menu" class="apex-menu-btn" data-toggle-menu=""><span aria-hidden="true" class="apex-action-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></span></button>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation menu" class="apex-menu-btn" data-toggle-menu="" type="button"><span aria-hidden="true" class="apex-action-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></span></button>
 </div>
 </div>
 </div>
@@ -527,7 +617,7 @@
 </div>
 <div class="tyre-shop-head-actions">
 <a class="btn-ghost" href="brands.html">View all brands</a>
-<a class="btn-primary" data-open-quote="" href="#">Get custom tyre quote →</a>
+<button class="btn-primary" data-open-quote="" type="button">Get custom tyre quote →</button>
 </div>
 </div>
 <button aria-expanded="true" class="filter-toggle-btn" data-filter-toggle="tyre-filter-panel" type="button"><span aria-hidden="true" class="filter-toggle-icon"><svg viewbox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"></path></svg></span><span>Filter tyres</span></button>
@@ -634,7 +724,7 @@
 </div>
 </article>
 <!-- MRF -->
-<article class="tyre-product-card reveal" data-brand="mrf" data-price="5999" data-size="195/65 R15" data-tier="value" data-tyre-type="value" data-vehicle="car,suv">
+<article class="tyre-product-card reveal" data-brand="mrf" data-price="5499" data-size="195/65 R15" data-tier="value" data-tyre-type="value" data-vehicle="car,suv">
 <div aria-hidden="true" class="tyre-product-visual tyre-product-img-wrap" style="--tyre-img:url('assets/images/brands/mrf_tyre.webp')">
 <img alt="MRF Perfinza luxury touring tyre" class="tyre-product-photo" decoding="async" fetchpriority="auto" height="1125" loading="eager" src="assets/images/brands/mrf_tyre.webp" width="900"/>
 <span class="tyre-img-brand-badge">MRF</span>
@@ -909,5 +999,5 @@
 </div>
 </footer>
 <script defer="" src="assets/js/main.js?v=responsive-menu-final-4"></script>
-<script defer="True" src="assets/js/pro-corrections.js"></script><script defer="" src="assets/js/final-visibility-function-fix.js"></script><script defer="True" src="assets/js/final-brand-marquee.js"></script><script defer="True" src="assets/js/final-blog-filter-robust.js"></script><script defer="True" src="assets/js/final-user-request-polish.js"></script><script defer="" src="assets/js/final-navbar-mobile-center-v5.js"></script><script defer="" src="assets/js/final-dir-mobile-v6.js"></script><script defer="" src="assets/js/final-mobile-menu-v7.js"></script></body>
+<script defer="True" src="assets/js/pro-corrections.js"></script><script defer="" src="assets/js/final-visibility-function-fix.js"></script><script defer="True" src="assets/js/final-brand-marquee.js"></script><script defer="True" src="assets/js/final-blog-filter-robust.js"></script><script defer="True" src="assets/js/final-user-request-polish.js"></script><script defer="" src="assets/js/final-navbar-mobile-center-v5.js"></script><script defer="" src="assets/js/final-dir-mobile-v6.js"></script><script defer="" src="assets/js/final-mobile-menu-v7.js"></script><script defer src="assets/js/final-exact-tyre-filter-v16.js"></script></body>
 </html>
