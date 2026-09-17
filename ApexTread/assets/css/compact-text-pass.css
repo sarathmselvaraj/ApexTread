@@ -1,0 +1,153 @@
+/* ======================================================================
+   APEXTREAD COMPACT TYPOGRAPHY + CONTRAST PASS — 2026-09-10
+   Final layer: shorter pages, tighter section rhythm, consistent alignment,
+   readable light/dark contrast, and requested centre naming.
+   ====================================================================== */
+
+html[data-theme="light"]{
+  --fg:#172033 !important;
+  --muted:#475467 !important;
+  --border:rgba(23,32,51,.14) !important;
+  --border-strong:rgba(249,115,22,.34) !important;
+  --surface:#ffffff !important;
+  --surface-2:#f7f7f8 !important;
+  --surface-sec:#f4f3f0 !important;
+}
+html[data-theme="dark"]{
+  --fg:#f8fafc !important;
+  --muted:#c2cad5 !important;
+  --border:rgba(255,255,255,.13) !important;
+  --border-strong:rgba(251,146,60,.38) !important;
+  --surface:#111822 !important;
+  --surface-2:#18212d !important;
+  --surface-sec:#0d141d !important;
+}
+body.fresh-apex-theme{line-height:1.48 !important}
+body.fresh-apex-theme :where(p,li,dd,dt,small,label){line-height:1.55}
+body.fresh-apex-theme :where(p,.text-muted,[style*="var(--muted)"]){color:var(--muted) !important}
+body.fresh-apex-theme :where(h1,h2,h3,h4,h5,h6){text-wrap:balance}
+body.fresh-apex-theme :where(p){text-wrap:pretty}
+
+/* Main section headings are centred and constrained; card copy remains easy to scan. */
+body.fresh-apex-theme :is(.home-section-heading,.fleet-section-head,.section-heading,.pro-center-head,
+  #pricing-promises>.mx-auto>.reveal,#journal-topics>.mx-auto>.reveal,#arrival-guide>.mx-auto>.reveal){
+  text-align:center !important;max-width:780px !important;margin-inline:auto !important;
+}
+body.fresh-apex-theme :is(.home-section-heading,.fleet-section-head,.section-heading,.pro-center-head) p{
+  max-width:700px;margin-left:auto !important;margin-right:auto !important;
+}
+body.fresh-apex-theme :is(.surface-card,.bento-card,.tyre-product-card,.fleet-service-card,.plan-card,.blog-article-card,.vehicle-card,.turnaround-card,.offer-card){
+  text-align:left;
+}
+html[dir="rtl"] body.fresh-apex-theme :is(.surface-card,.bento-card,.tyre-product-card,.fleet-service-card,.plan-card,.blog-article-card,.vehicle-card,.turnaround-card,.offer-card){text-align:right}
+body.fresh-apex-theme :is(.surface-card,.bento-card,.tyre-product-card,.fleet-service-card,.plan-card,.blog-article-card) p{margin-top:.55rem;margin-bottom:.65rem}
+
+/* Shorter page rhythm without making sections cramped. */
+body.fresh-apex-theme .py-24{padding-top:3.35rem !important;padding-bottom:3.35rem !important}
+body.fresh-apex-theme .py-20{padding-top:3rem !important;padding-bottom:3rem !important}
+body.fresh-apex-theme .py-16{padding-top:2.6rem !important;padding-bottom:2.6rem !important}
+body.fresh-apex-theme .bento-section{padding:3.2rem 0 !important}
+body.fresh-apex-theme .home-brand-strip{padding:3.15rem 0 !important}
+body.fresh-apex-theme .tyre-shop-section{padding:3.4rem 0 !important}
+body.fresh-apex-theme .fleet-pro-section{padding:3.4rem 0 !important}
+body.fresh-apex-theme .fleet-pro-hero{padding:3.25rem 0 !important}
+body.fresh-apex-theme .home-ref-hero{padding:2.7rem 0 3.15rem !important}
+body.fresh-apex-theme .home-ref-hero-grid{gap:34px !important}
+body.fresh-apex-theme .bento-grid{gap:1rem !important}
+body.fresh-apex-theme :is(.grid.gap-10,.apex-footer-grid){gap:1.5rem !important}
+body.fresh-apex-theme :is(.grid.gap-8){gap:1.25rem !important}
+body.fresh-apex-theme :is(.grid.gap-6){gap:1rem !important}
+body.fresh-apex-theme .bento-card{padding:1.55rem !important;border-radius:20px !important}
+body.fresh-apex-theme :is(.surface-card,.plan-card){padding-top:1.45rem !important;padding-bottom:1.45rem !important}
+body.fresh-apex-theme .fleet-service-card{min-height:225px !important;padding:1.25rem !important}
+body.fresh-apex-theme .fleet-service-card h3{min-height:auto !important;margin:10px 0 7px !important}
+body.fresh-apex-theme .fleet-service-card p{margin-bottom:12px !important}
+body.fresh-apex-theme .fleet-pro-media{min-height:430px !important}
+body.fresh-apex-theme .fleet-section-head{margin-bottom:24px !important}
+body.fresh-apex-theme .fleet-speed-card{padding:1.25rem .9rem !important}
+body.fresh-apex-theme .fleet-cta-band{padding:1.55rem !important}
+body.fresh-apex-theme .tyre-product-grid{margin-top:22px !important}
+body.fresh-apex-theme .tyre-product-body>p{min-height:48px !important}
+body.fresh-apex-theme .tyre-feature-row{min-height:42px !important}
+body.fresh-apex-theme .plan-card>p{min-height:unset !important}
+body.fresh-apex-theme .plan-card ul{min-height:128px !important}
+body.fresh-apex-theme .blog-card-copy h2{min-height:50px !important}
+body.fresh-apex-theme .blog-card-copy>p{min-height:66px !important}
+body.fresh-apex-theme #journal-topics .surface-card p{min-height:50px !important}
+
+/* Reduce border heaviness between sections while preserving visual separation. */
+body.fresh-apex-theme main section.border-y,
+body.fresh-apex-theme main section.border-b,
+body.fresh-apex-theme main section.border-t{border-color:color-mix(in srgb,var(--border) 68%,transparent) !important}
+body.fresh-apex-theme main section+section{margin-top:0 !important}
+
+/* Navbar/dropdown naming and contrast. */
+body.fresh-apex-theme .nav-home-menu a{color:var(--fg) !important;opacity:.84}
+body.fresh-apex-theme .nav-home-menu a:hover,
+body.fresh-apex-theme .nav-home-menu a.active{color:#f97316 !important;opacity:1;background:color-mix(in srgb,#f97316 9%,var(--surface-2)) !important}
+html[data-theme="dark"] body.fresh-apex-theme .nav-home-menu a{color:#e2e8f0 !important}
+html[data-theme="dark"] body.fresh-apex-theme .nav-home-menu a:hover,
+html[data-theme="dark"] body.fresh-apex-theme .nav-home-menu a.active{color:#fdba74 !important}
+body.fresh-apex-theme .apex-mobile-nav .nav-link{font-weight:550 !important;text-transform:none !important;letter-spacing:0 !important}
+
+/* Remove remaining multi-accent helper colours from readable UI text/badges. */
+body.fresh-apex-theme :is(.tech-icon-badge.cyan,.tech-icon-badge.lime){background:rgba(249,115,22,.10) !important;border-color:rgba(249,115,22,.26) !important;color:#f97316 !important}
+body.fresh-apex-theme :is(.tech-badge-pill.cyan,.tech-badge-pill.lime){background:rgba(249,115,22,.08) !important;border-color:rgba(249,115,22,.24) !important;color:#f97316 !important}
+body.fresh-apex-theme :is(.bento-card-cyan:hover,.bento-card-lime:hover){border-color:rgba(249,115,22,.42) !important;box-shadow:0 24px 56px -30px rgba(249,115,22,.28) !important}
+
+/* Footer is shorter but remains readable. */
+body.fresh-apex-theme .apex-footer-grid{padding-top:2.5rem !important;padding-bottom:2.5rem !important;gap:1.4rem !important}
+body.fresh-apex-theme .apex-footer-brand p{margin-top:.75rem !important}
+body.fresh-apex-theme .apex-footer-col h3{margin-bottom:.7rem !important}
+body.fresh-apex-theme .apex-footer-col li+li{margin-top:.35rem}
+body.fresh-apex-theme .apex-footer-bottom .mx-auto{min-height:48px !important;padding-top:.65rem !important;padding-bottom:.65rem !important}
+
+/* Forms and checkout stay compact/readable. */
+body.fresh-apex-theme :is(.checkout-section){padding-top:2.7rem !important;padding-bottom:3rem !important}
+body.fresh-apex-theme :is(.checkout-summary,.checkout-form){padding:1.35rem !important}
+body.fresh-apex-theme .checkout-product{margin:1rem 0 !important}
+body.fresh-apex-theme .payment-fieldset{margin:1.2rem 0 .8rem !important}
+
+@media(max-width:900px){
+  body.fresh-apex-theme .fleet-pro-media{min-height:340px !important}
+  body.fresh-apex-theme .fleet-pro-hero{padding:2.7rem 0 !important}
+  body.fresh-apex-theme .fleet-pro-grid{gap:22px !important}
+}
+@media(max-width:767px){
+  body.fresh-apex-theme .py-24,body.fresh-apex-theme .py-20{padding-top:2.35rem !important;padding-bottom:2.35rem !important}
+  body.fresh-apex-theme .py-16{padding-top:2.1rem !important;padding-bottom:2.1rem !important}
+  body.fresh-apex-theme .bento-section,body.fresh-apex-theme .home-brand-strip,body.fresh-apex-theme .tyre-shop-section,body.fresh-apex-theme .fleet-pro-section{padding:2.4rem 0 !important}
+  body.fresh-apex-theme .home-ref-hero{padding:2rem 0 2.45rem !important}
+  body.fresh-apex-theme .home-ref-hero-grid{gap:18px !important}
+  body.fresh-apex-theme .fleet-pro-media{min-height:285px !important}
+  body.fresh-apex-theme .fleet-pro-section{padding:2.45rem 0 !important}
+  body.fresh-apex-theme .fleet-section-head{margin-bottom:18px !important}
+  body.fresh-apex-theme .fleet-service-card{min-height:0 !important}
+  body.fresh-apex-theme .bento-card{padding:1.25rem !important}
+  body.fresh-apex-theme .apex-footer-grid{padding-top:2rem !important;padding-bottom:2rem !important;gap:1.25rem !important}
+  body.fresh-apex-theme :is(.blog-card-copy h2,.blog-card-copy>p,#journal-topics .surface-card p,.tyre-product-body>p,.plan-card ul){min-height:0 !important}
+}
+
+/* === Contrast lock: accessible orange text and CTA combinations === */
+html[data-theme="light"]{--brand:#c2410c !important;--brand-deep:#c2410c !important;--brand-2:#ea580c !important}
+html[data-theme="dark"]{--brand:#fb923c !important;--brand-deep:#fb923c !important;--brand-2:#fdba74 !important}
+html[data-theme="light"] body.fresh-apex-theme .text-heat{
+  background:none !important;color:#c2410c !important;-webkit-text-fill-color:#c2410c !important;
+}
+html[data-theme="dark"] body.fresh-apex-theme .text-heat{
+  background:none !important;color:#fdba74 !important;-webkit-text-fill-color:#fdba74 !important;
+}
+html[data-theme] body.fresh-apex-theme :is(
+  .btn-primary,.btn-shop,.tyre-buy-btn,.apex-register,.apex-mobile-signup,.fresh-mobile-book,.fresh-mobile-shop,
+  .checkout-submit,.filter-btn.active,.apex-mobile-cta
+){
+  background:#c2410c !important;background-image:none !important;border-color:#c2410c !important;color:#ffffff !important;
+}
+html[data-theme] body.fresh-apex-theme :is(
+  .btn-primary,.btn-shop,.tyre-buy-btn,.apex-register,.apex-mobile-signup,.fresh-mobile-book,.fresh-mobile-shop,
+  .checkout-submit,.filter-btn.active,.apex-mobile-cta
+):hover{
+  background:#9a3412 !important;border-color:#9a3412 !important;color:#ffffff !important;
+}
+html[data-theme="light"] body.fresh-apex-theme :is(.nav-link.active,.nav-home-menu a.active,.nav-home-menu a:hover,.apex-tyre-reset,.blog-read-link){color:#c2410c !important}
+html[data-theme="dark"] body.fresh-apex-theme :is(.nav-link.active,.nav-home-menu a.active,.nav-home-menu a:hover,.apex-tyre-reset,.blog-read-link){color:#fdba74 !important}

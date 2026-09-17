@@ -1,0 +1,211 @@
+/* =========================================================
+   ApexTread – exact filter + straight card rhythm pass (v16)
+   Aligns repeated card content without forcing mobile overflow.
+   ========================================================= */
+
+/* Every repeated grid stretches its children to one row height. */
+body.fresh-apex-theme :is(
+  .turnaround-grid,.vehicle-type-grid,.offers-grid,.tyre-product-grid,
+  .fleet-services-grid,.fleet-plan-grid,.achievement-grid
+){align-items:stretch !important;}
+
+body.fresh-apex-theme :is(
+  .turnaround-card,.vehicle-card,.offer-card,.tyre-product-card,
+  .fleet-service-card,.fleet-type-card,.fleet-speed-card,.fleet-plan-card,
+  .plan-card,.achievement-card,.card-equal
+){height:100% !important;min-width:0 !important;}
+
+/* Search/filter state always beats card flex/grid display layers. */
+body.page-home.fresh-apex-theme .tyre-product-card[hidden],
+body.page-home.fresh-apex-theme .tyre-product-card.tyre-search-hidden{
+  display:none !important;
+}
+
+/* Home: Express Bay cards – identical visual rows across all four cards. */
+@media (min-width:1024px){
+  body.page-home.fresh-apex-theme .turnaround-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  }
+  body.page-home.fresh-apex-theme .turnaround-card{
+    display:grid !important;
+    grid-template-rows:auto 3.15rem 2.75rem minmax(7.6rem,1fr) minmax(8.25rem,auto) !important;
+    align-content:stretch !important;
+    gap:0 !important;
+  }
+  body.page-home.fresh-apex-theme .turnaround-badge{
+    align-self:start !important;
+    margin:0 0 .85rem !important;
+    min-height:32px !important;
+  }
+  body.page-home.fresh-apex-theme .turnaround-time{
+    margin:0 !important;
+    align-self:center !important;
+  }
+  body.page-home.fresh-apex-theme .turnaround-card h3{
+    margin:0 !important;
+    align-self:start !important;
+    display:flex !important;
+    align-items:flex-start !important;
+    min-height:0 !important;
+    font-size:1.04rem !important;
+    line-height:1.22 !important;
+  }
+  body.page-home.fresh-apex-theme .turnaround-desc{
+    margin:.45rem 0 0 !important;
+    min-height:0 !important;
+    flex:0 0 auto !important;
+    align-self:start !important;
+  }
+  body.page-home.fresh-apex-theme .turnaround-steps{
+    width:100% !important;
+    margin:0 !important;
+    padding:1rem 0 0 !important;
+    align-self:stretch !important;
+    border-top:1px dashed var(--border) !important;
+  }
+  body.page-home.fresh-apex-theme .turnaround-steps li{
+    display:grid !important;
+    grid-template-columns:14px minmax(0,1fr) !important;
+    align-items:start !important;
+    gap:.55rem !important;
+    margin:0 0 .48rem !important;
+    line-height:1.45 !important;
+    text-align:left !important;
+  }
+  body.page-home.fresh-apex-theme .turnaround-steps li::before{
+    width:14px !important;
+    margin:0 !important;
+    text-align:center !important;
+  }
+  html[dir="rtl"] body.page-home.fresh-apex-theme .turnaround-steps li{text-align:right !important;}
+}
+
+@media (min-width:1200px){
+  body.page-home.fresh-apex-theme .turnaround-card h3{white-space:nowrap !important;}
+}
+
+/* Home: Workshop Capabilities – label/price, title, copy and CTA dividers align. */
+@media (min-width:1024px){
+  body.page-home.fresh-apex-theme [data-service-card]{
+    display:flex !important;
+    flex-direction:column !important;
+    height:100% !important;
+  }
+  body.page-home.fresh-apex-theme [data-service-card] > div:first-child{
+    display:grid !important;
+    grid-template-rows:auto 3.1rem minmax(7rem,1fr) !important;
+    align-content:start !important;
+    flex:1 1 auto !important;
+  }
+  body.page-home.fresh-apex-theme [data-service-card] > div:first-child > div:first-child{
+    min-height:34px !important;
+    align-items:center !important;
+  }
+  body.page-home.fresh-apex-theme [data-service-card] h3{
+    margin:.8rem 0 0 !important;
+    align-self:start !important;
+    display:flex !important;
+    align-items:flex-start !important;
+    font-size:1.02rem !important;
+    line-height:1.25 !important;
+  }
+  body.page-home.fresh-apex-theme [data-service-card] p{
+    margin:.45rem 0 0 !important;
+    align-self:start !important;
+    line-height:1.55 !important;
+  }
+  body.page-home.fresh-apex-theme [data-service-card] > div:last-child{
+    margin-top:0 !important;
+    min-height:58px !important;
+    padding-top:1rem !important;
+    border-top:1px solid var(--border) !important;
+  }
+}
+
+/* Home: Vehicle cards – consistent heading, copy, points and bottom CTA rows. */
+@media (min-width:1024px){
+  body.page-home.fresh-apex-theme .vehicle-card{
+    display:grid !important;
+    grid-template-rows:auto 3.35rem minmax(8rem,auto) 1fr auto !important;
+    align-content:stretch !important;
+  }
+  body.page-home.fresh-apex-theme .vehicle-card h3{margin:.7rem 0 0 !important;align-self:start !important;}
+  body.page-home.fresh-apex-theme .vehicle-card > p{margin:.45rem 0 0 !important;align-self:start !important;}
+  body.page-home.fresh-apex-theme .vehicle-specs-list{margin-top:.8rem !important;align-self:start !important;}
+  body.page-home.fresh-apex-theme .vehicle-card > :is(a,button){align-self:end !important;margin-top:1rem !important;}
+}
+
+/* Home: offer cards – price rows and bullet blocks share the same baselines. */
+@media (min-width:1024px){
+  body.page-home.fresh-apex-theme .offers-grid{grid-template-columns:repeat(4,minmax(0,1fr)) !important;}
+  body.page-home.fresh-apex-theme .offer-card{
+    display:grid !important;
+    grid-template-rows:auto minmax(4rem,auto) minmax(5.4rem,auto) 4.3rem 1fr auto !important;
+    align-content:stretch !important;
+  }
+  body.page-home.fresh-apex-theme .offer-value-pill{align-self:start !important;}
+  body.page-home.fresh-apex-theme .offer-card h3{margin:.8rem 0 0 !important;align-self:start !important;}
+  body.page-home.fresh-apex-theme .offer-card > p{margin:.35rem 0 0 !important;align-self:start !important;}
+  body.page-home.fresh-apex-theme .offer-price-tag{
+    min-height:0 !important;margin:.55rem 0 0 !important;align-self:center !important;
+    display:flex !important;align-items:baseline !important;justify-content:space-between !important;gap:.65rem !important;
+  }
+  body.page-home.fresh-apex-theme .offer-price-tag strong{white-space:nowrap !important;font-size:clamp(1.12rem,1.55vw,1.55rem) !important;}
+  body.page-home.fresh-apex-theme .offer-price-tag .was-price{white-space:nowrap !important;font-size:.76rem !important;}
+  body.page-home.fresh-apex-theme .offer-includes{margin:.6rem 0 0 !important;align-self:start !important;}
+  body.page-home.fresh-apex-theme .offer-includes li{
+    display:grid !important;grid-template-columns:14px minmax(0,1fr) !important;align-items:start !important;gap:.5rem !important;
+  }
+  body.page-home.fresh-apex-theme .offer-card > :is(button,a):last-child{align-self:end !important;margin-top:.9rem !important;}
+}
+
+/* Tyre stock cards – title/copy/price/action rows remain straight after filtering. */
+@media (min-width:768px){
+  body.page-home.fresh-apex-theme .tyre-product-grid{align-items:stretch !important;}
+  body.page-home.fresh-apex-theme .tyre-product-card{height:100% !important;}
+  body.page-home.fresh-apex-theme .tyre-product-body{display:flex !important;flex-direction:column !important;flex:1 1 auto !important;}
+  body.page-home.fresh-apex-theme .tyre-product-body h3{min-height:2.65rem !important;}
+  body.page-home.fresh-apex-theme .tyre-product-body > p{min-height:4.4rem !important;}
+  body.page-home.fresh-apex-theme .tyre-price-row{margin-top:auto !important;}
+}
+
+/* Services page – image, heading/copy and action rows line up across every service card. */
+body:not(.page-home).fresh-apex-theme .card-equal{display:flex !important;flex-direction:column !important;}
+body:not(.page-home).fresh-apex-theme .card-equal .card-grow{display:flex !important;flex-direction:column !important;flex:1 1 auto !important;}
+@media (min-width:768px){
+  body:not(.page-home).fresh-apex-theme .card-equal .card-grow h2{min-height:2.8rem !important;display:flex !important;align-items:flex-start !important;}
+  body:not(.page-home).fresh-apex-theme .card-equal .card-grow > p{min-height:4.5rem !important;}
+  body:not(.page-home).fresh-apex-theme .service-card-meta{min-height:32px !important;align-items:center !important;}
+  body:not(.page-home).fresh-apex-theme .service-card-actions{margin-top:auto !important;min-height:76px !important;align-items:center !important;}
+}
+
+/* Pricing cards – descriptions, prices, feature starts and CTAs align. */
+@media (min-width:768px){
+  body.fresh-apex-theme .plan-card > h2{min-height:3rem !important;}
+  body.fresh-apex-theme .plan-card > h2 + p{min-height:3.2rem !important;}
+  body.fresh-apex-theme .plan-card > .font-display{min-height:4rem !important;display:flex !important;align-items:center !important;}
+  body.fresh-apex-theme .plan-card > ul{margin-top:1.25rem !important;}
+}
+
+/* About / generic metric cards use the same text rhythm. */
+@media (min-width:768px){
+  body.fresh-apex-theme .achievement-card{display:grid !important;grid-template-rows:auto 2.8rem 1fr !important;align-content:start !important;}
+  body.fresh-apex-theme .achievement-card > span{display:flex !important;align-items:flex-start !important;}
+  body.fresh-apex-theme .achievement-card > p{margin-top:.45rem !important;}
+}
+
+/* Mobile/tablet: preserve straight internal alignment without forced one-line overflow. */
+@media (max-width:1023.98px){
+  body.page-home.fresh-apex-theme :is(.turnaround-card,.vehicle-card,.offer-card,[data-service-card]){
+    height:100% !important;
+  }
+  body.page-home.fresh-apex-theme :is(.turnaround-card,.vehicle-card,.offer-card,[data-service-card]) :is(h2,h3,p,li,strong,span){
+    white-space:normal !important;
+    word-break:normal !important;
+    overflow-wrap:break-word !important;
+  }
+  body.page-home.fresh-apex-theme .turnaround-steps,
+  body.page-home.fresh-apex-theme [data-service-card] > div:last-child{
+    width:100% !important;
+  }
+}
