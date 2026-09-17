@@ -1,0 +1,172 @@
+/* ========================================================================
+   ApexTread V6 — reference circular controls + strict pricing alignment
+   ======================================================================== */
+
+/* Reference-inspired round controls: theme + direction are compact circles. */
+body.fresh-apex-theme .apex-header-actions > :is(.apex-dir-toggle,.apex-theme-icon-btn){
+  width:44px!important;
+  min-width:44px!important;
+  height:44px!important;
+  min-height:44px!important;
+  padding:0!important;
+  border-radius:999px!important;
+  display:inline-grid!important;
+  place-items:center!important;
+  flex:0 0 44px!important;
+  border:1px solid color-mix(in srgb,var(--brand) 22%,var(--border))!important;
+  background:color-mix(in srgb,var(--surface) 92%,transparent)!important;
+  color:var(--fg)!important;
+  box-shadow:0 8px 22px rgba(15,23,42,.08)!important;
+  backdrop-filter:blur(14px) saturate(130%)!important;
+  -webkit-backdrop-filter:blur(14px) saturate(130%)!important;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease!important;
+}
+body.fresh-apex-theme .apex-header-actions > :is(.apex-dir-toggle,.apex-theme-icon-btn):hover,
+body.fresh-apex-theme .apex-header-actions > :is(.apex-dir-toggle,.apex-theme-icon-btn):focus-visible{
+  transform:translateY(-1px)!important;
+  border-color:color-mix(in srgb,var(--brand) 55%,var(--border))!important;
+  background:color-mix(in srgb,var(--brand) 7%,var(--surface))!important;
+  box-shadow:0 12px 26px rgba(15,23,42,.12)!important;
+}
+body.fresh-apex-theme .apex-dir-toggle .apex-action-label,
+body.fresh-apex-theme .apex-theme-icon-btn .apex-action-label{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+body.fresh-apex-theme :is(.apex-dir-toggle,.apex-theme-icon-btn) .apex-action-icon{
+  display:grid!important;
+  place-items:center!important;
+  width:21px!important;
+  height:21px!important;
+  color:currentColor!important;
+}
+body.fresh-apex-theme :is(.apex-dir-toggle,.apex-theme-icon-btn) .apex-action-icon svg{
+  width:21px!important;
+  height:21px!important;
+  stroke:currentColor!important;
+  fill:none!important;
+  stroke-width:1.9!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+}
+/* Dark mode retains the same clean glass language. */
+html[data-theme="dark"] body.fresh-apex-theme .apex-header-actions > :is(.apex-dir-toggle,.apex-theme-icon-btn){
+  background:rgba(19,25,32,.78)!important;
+  border-color:rgba(255,255,255,.14)!important;
+  color:#f8fafc!important;
+  box-shadow:0 8px 22px rgba(0,0,0,.2)!important;
+}
+
+/* Mobile drawer direction control: functional, explicit state + arrow icon. */
+@media(max-width:1199.98px){
+  body.fresh-apex-theme .apex-mobile-settings{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+  }
+  body.fresh-apex-theme .apex-mobile-setting-btn{
+    min-height:48px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:9px!important;
+    border-radius:14px!important;
+    filter:none!important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+  }
+  body.fresh-apex-theme .apex-mobile-setting-btn[data-toggle-dir] .apex-action-icon{
+    display:grid!important;
+    place-items:center!important;
+    width:20px!important;
+    height:20px!important;
+  }
+  body.fresh-apex-theme .apex-mobile-setting-btn[data-toggle-dir] .apex-action-icon svg{
+    width:20px!important;height:20px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.9!important;stroke-linecap:round!important;stroke-linejoin:round!important;
+  }
+  body.fresh-apex-theme .apex-mobile-setting-btn[data-toggle-dir] .apex-action-label{
+    display:inline!important;
+    position:static!important;
+    width:auto!important;height:auto!important;clip:auto!important;overflow:visible!important;margin:0!important;
+    font-size:.85rem!important;font-weight:750!important;letter-spacing:.03em!important;
+  }
+  body.fresh-apex-theme .apex-mobile-nav,
+  body.fresh-apex-theme .apex-mobile-nav *{
+    text-shadow:none!important;
+  }
+  body.fresh-apex-theme.menu-open{overflow:hidden!important;touch-action:none!important;}
+}
+
+/* Pricing: all package titles, descriptions, prices and actions share strict rows. */
+body[data-page-name="pricing"] section.mx-auto.max-w-7xl > .grid.md\:grid-cols-3{
+  align-items:stretch!important;
+}
+body[data-page-name="pricing"] .plan-card{
+  position:relative!important;
+  display:grid!important;
+  grid-template-rows:56px 58px 72px minmax(190px,1fr) auto!important;
+  align-content:stretch!important;
+  height:100%!important;
+  min-height:570px!important;
+}
+body[data-page-name="pricing"] .plan-card > h2{
+  margin:0!important;
+  align-self:start!important;
+  display:flex!important;
+  align-items:flex-start!important;
+}
+body[data-page-name="pricing"] .plan-card > p{
+  margin:0!important;
+  padding-top:8px!important;
+  align-self:start!important;
+}
+body[data-page-name="pricing"] .plan-card > div.font-display{
+  margin:0!important;
+  padding-top:10px!important;
+  min-height:72px!important;
+  display:flex!important;
+  align-items:flex-start!important;
+  white-space:nowrap!important;
+  line-height:1!important;
+}
+body[data-page-name="pricing"] .plan-card > ul{
+  margin:0!important;
+  padding-top:16px!important;
+  align-self:start!important;
+}
+body[data-page-name="pricing"] .plan-card > .mt-auto{
+  margin-top:0!important;
+  padding-top:20px!important;
+  align-self:end!important;
+}
+body[data-page-name="pricing"] .plan-card.featured .popular-badge{
+  position:absolute!important;
+  top:12px!important;
+  right:14px!important;
+  z-index:2!important;
+}
+@media(max-width:767.98px){
+  body[data-page-name="pricing"] .plan-card{
+    grid-template-rows:auto auto auto auto auto!important;
+    min-height:0!important;
+  }
+  body[data-page-name="pricing"] .plan-card > h2,
+  body[data-page-name="pricing"] .plan-card > p,
+  body[data-page-name="pricing"] .plan-card > div.font-display,
+  body[data-page-name="pricing"] .plan-card > ul,
+  body[data-page-name="pricing"] .plan-card > .mt-auto{
+    min-height:0!important;
+  }
+  body[data-page-name="pricing"] .plan-card > p{padding-top:8px!important}
+  body[data-page-name="pricing"] .plan-card > div.font-display{padding-top:18px!important}
+  body[data-page-name="pricing"] .plan-card > ul{padding-top:18px!important}
+}
+/* Featured pricing card must use the exact same content inset as sibling cards. */
+body[data-page-name="pricing"] .plan-card.featured{padding-top:1.45rem!important;}

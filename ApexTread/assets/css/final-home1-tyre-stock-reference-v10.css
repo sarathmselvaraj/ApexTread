@@ -1,0 +1,289 @@
+/* ApexTread V10 — Home 1 tyre stock reference fix
+   Goal: tyre artwork must always be visible, buttons stay aligned, and price hierarchy is premium/readable. */
+
+body.page-home.fresh-apex-theme #popular-tyres .tyre-product-grid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:22px !important;
+  align-items:stretch !important;
+}
+
+body.page-home.fresh-apex-theme #popular-tyres .tyre-product-card{
+  display:flex !important;
+  flex-direction:column !important;
+  min-width:0 !important;
+  height:100% !important;
+  overflow:hidden !important;
+  border-radius:22px !important;
+  border:1px solid color-mix(in srgb,var(--border) 88%,var(--brand) 12%) !important;
+  background:var(--surface) !important;
+  box-shadow:0 18px 42px rgba(0,0,0,.12) !important;
+}
+
+/* Bulletproof media stage: the same source is also used as a soft backplate,
+   while the real image uses contain so the complete tyre is never cropped. */
+body.page-home.fresh-apex-theme #popular-tyres .tyre-product-visual,
+body.page-home.fresh-apex-theme #popular-tyres .tyre-product-img-wrap{
+  position:relative !important;
+  isolation:isolate !important;
+  width:100% !important;
+  height:250px !important;
+  min-height:250px !important;
+  aspect-ratio:auto !important;
+  overflow:hidden !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:12px !important;
+  background-color:#10151b !important;
+  background-image:
+    radial-gradient(circle at 50% 42%,rgba(249,115,22,.09),transparent 48%),
+    linear-gradient(145deg,#151c24,#0d1218) !important;
+  background-size:cover !important;
+  background-position:center !important;
+  border-bottom:1px solid var(--border) !important;
+}
+
+body.page-home.fresh-apex-theme #popular-tyres .tyre-product-visual::before,
+body.page-home.fresh-apex-theme #popular-tyres .tyre-product-img-wrap::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:-24px !important;
+  z-index:-1 !important;
+  background-image:var(--tyre-img) !important;
+  background-size:cover !important;
+  background-position:center !important;
+  filter:blur(30px) saturate(.78) brightness(.52) !important;
+  transform:scale(1.14) !important;
+  opacity:.24 !important;
+}
+
+body.page-home.fresh-apex-theme #popular-tyres .tyre-product-visual::after,
+body.page-home.fresh-apex-theme #popular-tyres .tyre-product-img-wrap::after{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:0 !important;
+  pointer-events:none !important;
+  background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(0,0,0,.14)) !important;
+}
+
+body.page-home.fresh-apex-theme #popular-tyres .tyre-product-photo{
+  position:relative !important;
+  z-index:1 !important;
+  display:block !important;
+  width:auto !important;
+  height:auto !important;
+  max-width:96% !important;
+  max-height:96% !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  margin:auto !important;
+  padding:0 !important;
+  border-radius:14px !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  transform:none !important;
+  filter:saturate(1.04) contrast(1.03) !important;
+  box-shadow:0 12px 28px rgba(0,0,0,.18) !important;
+}
+
+body.page-home.fresh-apex-theme #popular-tyres .tyre-product-card:hover .tyre-product-photo{
+  transform:none !important;
+  filter:saturate(1.08) contrast(1.04) !important;
+}
+
+body.page-home.fresh-apex-theme #popular-tyres .tyre-img-brand-badge{
+  position:absolute !important;
+  top:18px !important;
+  right:auto !important;
+  bottom:auto !important;
+  left:18px !important;
+  width:max-content !important;
+  height:auto !important;
+  z-index:3 !important;
+  margin:0 !important;
+  padding:7px 11px !important;
+  min-height:0 !important;
+  border-radius:999px !important;
+  border:1px solid rgba(255,255,255,.18) !important;
+  background:rgba(8,12,16,.78) !important;
+  backdrop-filter:blur(8px) !important;
+  color:#fff !important;
+  font-family:"Segoe UI",Inter,Arial,sans-serif !important;
+  font-size:.67rem !important;
+  font-weight:800 !important;
+  line-height:1 !important;
+  letter-spacing:.10em !important;
+  white-space:nowrap !important;
+  box-shadow:0 8px 20px rgba(0,0,0,.22) !important;
+}
+html[dir="rtl"] body.page-home.fresh-apex-theme #popular-tyres .tyre-img-brand-badge{
+  left:auto !important;
+  right:18px !important;
+  bottom:auto !important;
+}
+
+body.page-home.fresh-apex-theme #popular-tyres .tyre-product-body{
+  display:flex !important;
+  flex:1 1 auto !important;
+  flex-direction:column !important;
+  gap:10px !important;
+  min-height:0 !important;
+  padding:20px !important;
+}
+
+/* Premium price block — no Anton/display font here; use a clean UI face. */
+body.page-home.fresh-apex-theme #popular-tyres .tyre-price-row{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:13px !important;
+  align-items:stretch !important;
+  margin-top:auto !important;
+  padding-top:15px !important;
+  border-top:1px solid var(--border) !important;
+}
+body.page-home.fresh-apex-theme #popular-tyres .tyre-price-row > div:first-child{
+  display:flex !important;
+  align-items:baseline !important;
+  flex-wrap:wrap !important;
+  gap:4px 7px !important;
+  min-width:0 !important;
+}
+body.page-home.fresh-apex-theme #popular-tyres .tyre-price-row > div:first-child small{
+  margin:0 !important;
+  color:var(--muted) !important;
+  font-family:"Segoe UI",Inter,Arial,sans-serif !important;
+  font-size:.72rem !important;
+  font-weight:700 !important;
+  line-height:1.1 !important;
+  letter-spacing:.04em !important;
+  text-transform:uppercase !important;
+}
+body.page-home.fresh-apex-theme #popular-tyres .tyre-price-row > div:first-child strong{
+  display:inline-block !important;
+  margin:0 1px !important;
+  color:var(--brand) !important;
+  font-family:"Segoe UI",Inter,Arial,sans-serif !important;
+  font-size:1.9rem !important;
+  font-weight:850 !important;
+  line-height:1 !important;
+  letter-spacing:-.045em !important;
+  white-space:nowrap !important;
+  text-shadow:none !important;
+}
+
+/* Exactly two equal, stable actions like the reference. */
+body.page-home.fresh-apex-theme #popular-tyres .tyre-buy-actions{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:9px !important;
+  width:100% !important;
+  min-width:0 !important;
+  align-items:stretch !important;
+}
+body.page-home.fresh-apex-theme #popular-tyres .tyre-buy-actions > a,
+body.page-home.fresh-apex-theme #popular-tyres .tyre-buy-actions > button{
+  box-sizing:border-box !important;
+  width:100% !important;
+  min-width:0 !important;
+  min-height:46px !important;
+  height:46px !important;
+  margin:0 !important;
+  padding:0 11px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  border-radius:12px !important;
+  font-family:"Segoe UI",Inter,Arial,sans-serif !important;
+  font-size:.78rem !important;
+  font-weight:750 !important;
+  line-height:1.05 !important;
+  letter-spacing:.005em !important;
+  text-transform:none !important;
+  text-align:center !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+  cursor:pointer !important;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease !important;
+}
+body.page-home.fresh-apex-theme #popular-tyres .tyre-buy-actions > a{
+  color:var(--fg) !important;
+  background:color-mix(in srgb,var(--surface-2) 92%,transparent) !important;
+  border:1px solid color-mix(in srgb,var(--brand) 38%,var(--border)) !important;
+  box-shadow:none !important;
+}
+body.page-home.fresh-apex-theme #popular-tyres .tyre-buy-actions > a:hover{
+  color:var(--brand) !important;
+  background:color-mix(in srgb,var(--brand) 9%,var(--surface)) !important;
+  border-color:var(--brand) !important;
+  transform:translateY(-1px) !important;
+}
+html[data-theme] body.page-home.fresh-apex-theme #popular-tyres .tyre-buy-actions > .tyre-buy-btn{
+  color:#fff !important;
+  background:linear-gradient(135deg,#ff8617 0%,#f05a00 100%) !important;
+  border:1px solid rgba(255,255,255,.18) !important;
+  box-shadow:0 9px 20px rgba(249,115,22,.24) !important;
+}
+html[data-theme] body.page-home.fresh-apex-theme #popular-tyres .tyre-buy-actions > .tyre-buy-btn:hover{
+  color:#fff !important;
+  background:linear-gradient(135deg,#ff9534 0%,#f6660b 100%) !important;
+  box-shadow:0 12px 25px rgba(249,115,22,.31) !important;
+  transform:translateY(-1px) !important;
+}
+
+html[data-theme="light"] body.page-home.fresh-apex-theme #popular-tyres .tyre-product-card{
+  box-shadow:0 16px 38px rgba(31,41,55,.09) !important;
+}
+
+@media (max-width:1099px){
+  body.page-home.fresh-apex-theme #popular-tyres .tyre-product-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:18px !important;
+  }
+  body.page-home.fresh-apex-theme #popular-tyres .tyre-product-visual,
+  body.page-home.fresh-apex-theme #popular-tyres .tyre-product-img-wrap{
+    height:235px !important;
+    min-height:235px !important;
+  }
+}
+
+@media (max-width:767px){
+  body.page-home.fresh-apex-theme #popular-tyres .tyre-product-grid{
+    grid-template-columns:1fr !important;
+    gap:18px !important;
+  }
+  body.page-home.fresh-apex-theme #popular-tyres .tyre-product-visual,
+  body.page-home.fresh-apex-theme #popular-tyres .tyre-product-img-wrap{
+    height:232px !important;
+    min-height:232px !important;
+    padding:10px !important;
+  }
+  body.page-home.fresh-apex-theme #popular-tyres .tyre-product-body{padding:17px !important;}
+  body.page-home.fresh-apex-theme #popular-tyres .tyre-price-row > div:first-child strong{font-size:1.82rem !important;}
+  body.page-home.fresh-apex-theme #popular-tyres .tyre-buy-actions > a,
+  body.page-home.fresh-apex-theme #popular-tyres .tyre-buy-actions > button{
+    min-height:45px !important;
+    height:45px !important;
+    font-size:.76rem !important;
+    padding-inline:8px !important;
+  }
+}
+
+@media (max-width:359px){
+  body.page-home.fresh-apex-theme #popular-tyres .tyre-product-visual,
+  body.page-home.fresh-apex-theme #popular-tyres .tyre-product-img-wrap{
+    height:210px !important;
+    min-height:210px !important;
+  }
+  body.page-home.fresh-apex-theme #popular-tyres .tyre-buy-actions{
+    grid-template-columns:1fr !important;
+  }
+  body.page-home.fresh-apex-theme #popular-tyres .tyre-buy-actions > a,
+  body.page-home.fresh-apex-theme #popular-tyres .tyre-buy-actions > button{
+    font-size:.79rem !important;
+  }
+}

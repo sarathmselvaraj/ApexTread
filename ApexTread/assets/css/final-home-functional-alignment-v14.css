@@ -1,0 +1,137 @@
+/* ApexTread Home 1 final functional/alignment QA — v14 */
+
+/* Section headings: one clean line on desktop, safe wrapping below laptop width. */
+@media (min-width:1024px){
+  body.page-home.fresh-apex-theme .home-section-heading.compact{
+    max-width:1240px !important;
+    width:min(1240px,calc(100% - 24px)) !important;
+  }
+  body.page-home.fresh-apex-theme .home-section-heading.compact h2{
+    font-size:clamp(1.65rem,1.8vw,1.95rem) !important;
+    line-height:1.08 !important;
+    white-space:nowrap !important;
+    text-wrap:nowrap !important;
+  }
+  body.page-home.fresh-apex-theme .home-section-heading.compact p{
+    max-width:1040px !important;
+    font-size:.9rem !important;
+    line-height:1.5 !important;
+  }
+}
+
+/* Current Workshop Deals cards: compact one-line headings and aligned price rows. */
+@media (min-width:1200px){
+  body.page-home.fresh-apex-theme .offers-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    align-items:stretch !important;
+  }
+  body.page-home.fresh-apex-theme .offer-card{
+    min-width:0 !important;
+    padding:20px !important;
+  }
+  body.page-home.fresh-apex-theme .offer-card h3{
+    font-size:clamp(.7rem,.78vw,.8rem) !important;
+    line-height:1.2 !important;
+    letter-spacing:-.015em !important;
+    white-space:nowrap !important;
+    overflow:visible !important;
+    margin:.8rem 0 .55rem !important;
+  }
+  body.page-home.fresh-apex-theme .offer-card > p{
+    min-height:4.65em !important;
+    margin:0 !important;
+    font-size:.79rem !important;
+    line-height:1.55 !important;
+  }
+  body.page-home.fresh-apex-theme .offer-price-tag{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) auto !important;
+    align-items:baseline !important;
+    gap:.55rem !important;
+    min-height:38px !important;
+    margin:.9rem 0 1rem !important;
+  }
+  body.page-home.fresh-apex-theme .offer-price-tag strong{
+    min-width:0 !important;
+    font-size:1.08rem !important;
+    line-height:1.1 !important;
+    white-space:nowrap !important;
+  }
+  body.page-home.fresh-apex-theme .offer-price-tag .was-price{
+    font-size:.73rem !important;
+    line-height:1.2 !important;
+    white-space:nowrap !important;
+    text-align:right !important;
+  }
+  html[dir="rtl"] body.page-home.fresh-apex-theme .offer-price-tag .was-price{text-align:left !important;}
+}
+
+/* Laptop: keep prices straight but allow long card headings to wrap safely. */
+@media (min-width:768px) and (max-width:1199.98px){
+  body.page-home.fresh-apex-theme .offer-price-tag{
+    display:flex !important;
+    align-items:baseline !important;
+    justify-content:space-between !important;
+    gap:.5rem !important;
+  }
+  body.page-home.fresh-apex-theme .offer-price-tag strong{
+    font-size:1.1rem !important;
+    white-space:nowrap !important;
+  }
+  body.page-home.fresh-apex-theme .offer-price-tag .was-price{
+    font-size:.72rem !important;
+    white-space:nowrap !important;
+  }
+}
+
+/* Phone: readable stacking without clipped content. */
+@media (max-width:767.98px){
+  body.page-home.fresh-apex-theme .home-section-heading.compact h2{
+    white-space:normal !important;
+    text-wrap:balance !important;
+  }
+  body.page-home.fresh-apex-theme .offer-card h3{
+    font-size:1.04rem !important;
+    line-height:1.25 !important;
+    white-space:normal !important;
+  }
+  body.page-home.fresh-apex-theme .offer-price-tag{
+    display:flex !important;
+    align-items:baseline !important;
+    justify-content:space-between !important;
+    gap:.65rem !important;
+  }
+  body.page-home.fresh-apex-theme .offer-price-tag strong{
+    font-size:1.18rem !important;
+    line-height:1.15 !important;
+    white-space:nowrap !important;
+  }
+  body.page-home.fresh-apex-theme .offer-price-tag .was-price{
+    font-size:.76rem !important;
+    white-space:nowrap !important;
+  }
+}
+
+/* Search/filter state needs to win over older card display:flex rules. */
+body.page-home.fresh-apex-theme .tyre-product-card[hidden],
+body.page-home.fresh-apex-theme .tyre-product-card.tyre-search-hidden{
+  display:none !important;
+}
+body.page-home.fresh-apex-theme .tyre-empty-state[hidden]{display:none !important;}
+body.page-home.fresh-apex-theme .tyre-empty-state.is-visible{
+  display:grid !important;
+  place-items:center !important;
+  gap:.35rem !important;
+  width:100% !important;
+  margin:1rem auto !important;
+  padding:1rem 1.2rem !important;
+  text-align:center !important;
+  border:1px dashed var(--border) !important;
+  border-radius:14px !important;
+  background:var(--surface) !important;
+  color:var(--fg) !important;
+}
+body.page-home.fresh-apex-theme .tyre-search-clear{
+  flex:0 0 auto !important;
+  min-width:70px !important;
+}
